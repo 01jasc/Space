@@ -1,1 +1,39 @@
-<h1>Hello, this is the index page of the facilities</h1>
+<div class="container">
+  <h1 class="text-center">Facilities</h1>
+    <div class="container">
+        <div class="col d-flex">
+          <div id="facilities">
+            <% @facilities.each do |facility| %>
+              <div class="row d-flex py-4">
+                <div class="col my-1">
+                  <div class="card shadow border mx-auto">
+                    <div class="card-img-top"></div>
+                    <div class="card-body">
+                      <%= link_to facility_path(facility), class: "text-decoration-none text-black"  do %>
+                        <div class="card-title">
+                          <h1><%= facility.name %></h1>
+                        </div>
+                        <div class="card-text">
+                          <p><%= facility.description %></p>
+                        </div>
+                        </div>
+                        <div class="card-footer d-flex align-items-center">
+                          <div>
+                            <small class="text-muted"><p>★ favorite</p></small>
+                          </div>
+                          <div>
+                            <small class="text-muted"><p>capacity: <%= facility.capacity %></p></small>
+                          </div>
+                          <div>
+                            <small class="text-muted"><p>Utility: 80%</p></small>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+    </div>
+</div>
