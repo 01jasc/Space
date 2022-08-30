@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_142720) do
     t.text "comment"
     t.date "start_time"
     t.date "end_time"
-    t.boolean "checked_in", default: false
+    t.boolean "checked_in"
     t.bigint "user_id", null: false
     t.bigint "facility_id", null: false
     t.datetime "created_at", null: false
