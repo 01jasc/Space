@@ -2,13 +2,27 @@
   <h1>This is the bookings#index page</h1>
 
   <% @bookings.each do |booking|  %>
-  <div class="card" style="width: 18rem;">
-  <h3>Location: <%= booking.facility.name %></h3>
-    <p><%= booking.comment %></p>
-    <p>Starttime: <%= booking.start_time %></p>
-    <p>Endtime: <%= booking.end_time %></p>
-    <p>Checked In? <%= booking.checked_in ? "✅" : "❌" %></p>
-
-  </div>
+    <div class="card-trip mb-3">
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
+        <div class="card-trip-infos">
+          <div>
+            <h3>Location: <%= booking.facility.name %></h3>
+            <p>Comment: <%= booking.comment %></p>
+            <p>Starttime: <%= booking.start_time %></p>
+            <p>Endtime: <%= booking.end_time %></p>
+            <p>Checked In? <%= booking.checked_in ? "✅" : "❌" %></p>
+          </div>
+        </div>
+      </div>
   <% end %>
+
+</div>
+
+
+
+
+
+
+
+
 </div>
