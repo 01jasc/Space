@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>This is the bookings#index page</h1>
+
+  <% @bookings.each do |booking|  %>
+  <div class="card" style="width: 18rem;">
+  <h3>Location: <%= booking.facility.name %></h3>
+    <p><%= booking.comment %></p>
+    <p>Starttime: <%= booking.start_time %></p>
+    <p>Endtime: <%= booking.end_time %></p>
+    <p>Checked In? <%= booking.checked_in ? "✅" : "❌" %></p>
+
+  </div>
+  <% end %>
+</div>
