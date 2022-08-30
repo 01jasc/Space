@@ -1,1 +1,43 @@
 // Specific CSS for your home-page
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  ;
+}
+
+.header {
+  color: rgba(118,255,3,1);
+  position: absolute;
+  height: 288px;
+  width: 640px;
+  left: 417px;
+  top: 269px;
+  border-radius: nullpx;
+  font-family: Audiowide;
+  font-weight: Regular;
+  font-size: 75px;
+  opacity: 1;
+  text-align: center;
+}
+
+.tagline {
+  width: 590px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 605px;
+  left: 438px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 24px;
+  opacity: 1;
+  text-align: center;
+}
+
+.our-story {
+  background: linear-gradient(rgba(255,255,255,0.30000001192092896), rgba(255,255,255,0.20000000298023224));
+  width: 383px;
+  height: 934px;
+}
