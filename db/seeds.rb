@@ -18,3 +18,4 @@ puts "Creating facilities..."
   puts "#{i + 1}. #{facility.capacity}"
 end
 puts "Finished!"
+
