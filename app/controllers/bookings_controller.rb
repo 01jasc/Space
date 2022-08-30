@@ -2,6 +2,10 @@ class BookingsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_facility, only: %i[create]
 
+  def index
+    @bookings = Booking.all
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @facility = Facility.find(params[:facility_id])
