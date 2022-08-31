@@ -13,13 +13,13 @@
   <div>
     <p>Description: <%= @facility.description * 5%></p>
   </div>
-  <div id="graph" class="mb-5">
+  <div id="graph" class="py-5">
     <h3 class="text-center mb-3">Current Utility rate is 80%</h3>
     <div class="d-flex justify-content-center">
       <%= image_tag "bars.png", width: 800, height: 300, class: "img-responsive pull-right" %>
     </div>
   </div>
-  <div class="row">
+  <div class="row py-5">
     <div class="col">
       <%= image_tag "category-imgs.png" %>
     </div>
@@ -29,21 +29,18 @@
     </div>
   </div>
 
-  <div class="px-5">
-    <div class="p-4 mt-5">
+  <div id="booking-form" class="row justify-content-center py-5">
       <% if current_user %>
         <h3 class="text-center">Book a timeslot at your convenience</h3>
           <%= simple_form_for [@facility, @booking] do |f| %>
-            <%= f.input :comment %>
-            <%= f.input :start_time %>
-            <%= f.input :end_time %>
-            <div class="text-center pt-3">
-            <%= f.submit "Book Offer", class: "btn-50" %>
+            <%= f.input :start_time, as: :date, html5: true, input_html: { class: "glass-card" } %>
+            <%= f.input :end_time, as: :date, html5: true, input_html: { class: "glass-card" } %>
+            <div class="text-center">
+            <%= f.submit "Book Offer" %>
             </div>
           <% end %>
       <% else %>
           <%= link_to "Go to Login", new_user_session_path  %>
       <% end %>
-    </div>
   </div>
 </div>
