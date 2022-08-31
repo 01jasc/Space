@@ -5,5 +5,6 @@ class FacilitiesController < ApplicationController
 
   def show
     @facility = Facility.find(params[:id])
+    @booking = Booking.new
   end
 end
