@@ -1,20 +1,20 @@
-<div class="card-category mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @facility.picture %>)">
+<div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @facility.picture %>)">
   <div>
-    <h3 class="mb-5">Name: <%= @facility.name %></h3>
+    <h2 class="mb-5"><%= @facility.name %></h2>
     <p>Address: <%= @facility.address %></p>
   </div>
 </div>
-<div class="container">
+<div class="container my-4">
   <div class="d-flex justify-content-between">
     <p>Category: <%= @facility.category %></p>
     <p>Max. Capacity: <%= @facility.capacity %></p>
     <p>Courts occupied: 8</p>
   </div>
-  <div>
+  <div class="container">
     <p>Description: <%= @facility.description * 5%></p>
   </div>
   <div id="graph" class="py-5">
-    <h3 class="text-center mb-3">Current Utility rate is 80%</h3>
+    <h3 class="text-center my-5">Current Utility rate is 80%</h3>
     <div class="d-flex justify-content-center">
       <%= image_tag "bars.png", width: 800, height: 300, class: "img-responsive pull-right" %>
     </div>
@@ -31,16 +31,16 @@
 
   <div id="booking-form" class="row justify-content-center py-5">
       <% if current_user %>
-        <h3 class="text-center">Book a timeslot at your convenience</h3>
+        <h3 class="text-center pb-2">Book a timeslot</h3>
           <%= simple_form_for [@facility, @booking] do |f| %>
             <%= f.input :start_time, as: :date, html5: true, input_html: { class: "glass-card" } %>
             <%= f.input :end_time, as: :date, html5: true, input_html: { class: "glass-card" } %>
-            <div class="text-center">
-            <%= f.submit "Book Offer" %>
+            <div class="text-center py-2">
+              <%= f.submit "Book Offer", class: "glass-button" %>
             </div>
           <% end %>
       <% else %>
-          <%= link_to "Go to Login", new_user_session_path  %>
+        <%= link_to "Go to Login", new_user_session_path  %>
       <% end %>
   </div>
 </div>
