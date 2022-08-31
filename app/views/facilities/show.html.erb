@@ -1,20 +1,21 @@
 <div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @facility.picture %>)">
   <div>
-    <h2 class="mb-5"><%= @facility.name %></h2>
-    <p>Address: <%= @facility.address %></p>
+    <h3 class="mb-5"><%= @facility.name %></h3>
+    <p><i class="fa-solid fa-location-dot" style="color: #76FF03";></i> Address: <%= @facility.address %></p>
   </div>
 </div>
-<div class="container my-4">
-  <div class="d-flex justify-content-between">
-    <p>Category: <%= @facility.category %></p>
+<div class="container">
+  <div id="sub-info" class="d-flex justify-content-between">
+    <p>Category: <%= @facility.category %> <i class="fa-solid fa-dumbbell" style="color: #76FF03;"></i></p>
     <p>Max. Capacity: <%= @facility.capacity %></p>
-    <p>Courts occupied: 8</p>
+    <p>Rating: 4/5 ⭐️</p>
   </div>
   <div class="container">
     <p>Description: <%= @facility.description * 5%></p>
   </div>
   <div id="graph" class="py-5">
-    <h3 class="text-center my-5">Current Utility rate is 80%</h3>
+
+    <h3 class="text-center mb-3">Current Utility rate is <span style="color: #76FF03;">80%</span></h3>
     <div class="d-flex justify-content-center">
       <%= image_tag "bars.png", width: 800, height: 300, class: "img-responsive pull-right" %>
     </div>
