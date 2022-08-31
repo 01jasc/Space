@@ -8,32 +8,46 @@ body {
   ;
 }
 
+.SectionBanner {
+  background-image: url(https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  // display: flex;
+  // justify-content: center;
+  height: 635px;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  padding: 0%;
+  margin: 0%;
+}
+
 .header {
   color: rgba(118,255,3,1);
   position: absolute;
   height: 288px;
   width: 640px;
-  left: 417px;
-  top: 269px;
+  left: 370px;
+  top: 203px;
   border-radius: nullpx;
   font-family: Audiowide;
   font-weight: Regular;
   font-size: 75px;
   opacity: 1;
-  text-align: center;
 }
 
 .tagline {
-  width: 590px;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 605px;
-  left: 438px;
+  top: 560px;
+  width: 593px;
+  left: 370px;
   font-family: Inter;
   font-weight: Regular;
   font-size: 24px;
   opacity: 1;
-  text-align: center;
 }
 
 .our-story {
