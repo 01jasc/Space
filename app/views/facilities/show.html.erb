@@ -1,11 +1,31 @@
+<div class="card-category mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @facility.picture %>)">
+  <div>
+    <h3 class="mb-5">Name: <%= @facility.name %></h3>
+    <p>Address: <%= @facility.address %></p>
+  </div>
+</div>
 <div class="container">
-  <h1>Show page of one facility</h1>
-
-
-  <img style="width: 200px" src=<%= @facility.picture %> alt="">
-  <p>Name: <%= @facility.name %></p>
-  <p>Address: <%= @facility.address %></p>
-  <p>Description: <%= @facility.description %></p>
-  <p>Max. Capacity: <%= @facility.capacity %></p>
-  <p>Category: <%= @facility.category %></p>
+  <div class="d-flex justify-content-between">
+    <p>Category: <%= @facility.category %></p>
+    <p>Max. Capacity: <%= @facility.capacity %></p>
+    <p>Courts occupied: 8</p>
+  </div>
+  <div>
+    <p>Description: <%= @facility.description * 5%></p>
+  </div>
+  <div id="graph">
+    <h3 class="text-center mb-3">Current Utility rate is 80%</h3>
+    <div class="d-flex justify-content-center">
+      <%= image_tag "bars.png", width: 800, height: 300, class: "img-responsive pull-right" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= image_tag "category-imgs.png" %>
+    </div>
+    <div class="row">
+      <h3><%= @facility.category %></h3>
+      <p>Badminton is a racquet sport played using racquets to hit a shuttlecock across a net. Although it may be played with larger teams, the most common forms of the game are "singles" (with one player per side) and "doubles" (with two players per side). Badminton is often played as a casual outdoor activity in a yard or on a beach; formal games are played on a rectangular indoor court. Points are scored by striking the shuttlecock with the racquet and landing it within the opposing side's half of the court.</p>
+    </div>
+  </div>
 </div>
