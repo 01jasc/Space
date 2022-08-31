@@ -9,14 +9,17 @@
   color: white;
   font-size: 24px;
   font-weight: bold;
+  text-align: center;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .card-category h3 {
-  font-family: "Audiowide"
+  font-family: "Audiowide";
+  font-size: 42px;
 }
 
 .card-category p {
-  font-size: 17px;
+  font-family: "Audiowide";
+  font-size: 16px;
 }
