@@ -1,0 +1,19 @@
+<div class="container d-flex pt-3">
+  <div>
+    <h1> Bookings</h1>
+      <div class="booking_cards w-50" id="cont1">
+        <% @my_bookings.each do |booking| %>
+          <%= link_to booking_path(booking) do %>
+            <div class="card me-3" style="width: 18rem; color: black; text-decoration: none !important">
+              <div class="card-trip-infos">
+                <div>
+                  <h4><%= booking.start_time %></h4>
+                  <h4><%= booking.end_time %></h4>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+</div>
