@@ -1,25 +1,49 @@
 <div class="container">
-  <h1 class="text-center">My Dashboard</h1>
-  <div class="card">
+  <h1 class="text-center mb-3">My Dashboard</h1>
+  <div class="card glass-card">
     <div class="card-body">
-
+      <div class="card-title">
+        <h2>Hello, Jane!</h2>
+      </div>
+      <%= image_tag "unnamed.jpeg", class: "avatar-larger"%>
+      </div>
     </div>
-  </div>
 </div>
 <div class="container flex items-center justify-center min-h-screen">
-  <h1>Activity Journal</h1>
-    <% @bookings.each do |booking|  %>
-      <div class="card-trip mb-3">
-        <img src= <%= booking.facility.picture %> />
-          <div class="card-trip-infos">
-            <div>
-              <h3>Location: <%= booking.facility.name %></h3>
-              <p>Comment: <%= booking.comment %></p>
-              <p>Starttime: <%= booking.start_time %></p>
-              <p>Endtime: <%= booking.end_time %></p>
-              <p>Checked In? <%= booking.checked_in ? "✅" : "❌" %></p>
-            </div>
+  <h1 class="text-center text-white m-2">Activity Journal</h1>
+    <div id="activities">
+      <% @bookings.each do |booking| %>
+        <div class="row d-flex py-2">
+          <div class="col my-1">
+            <%= link_to bookings_path(booking), class: "text-decoration-none text-black"  do %>
+              <div class="row d-flex">
+                <div class="card glass-card shadow-xl rounded-lg horizontal">
+                  <img class="card-img shadow-box " src= <%= booking.facility.picture %>  alt="Card image cap" style="width: 350px">
+                      <div class="card-block">
+                    <div class="card-body">
+                          <div class="card-title py-2">
+                              <h3><%= booking.facility.name %></h3>
+                            </div>
+                            <div class="card-content">
+                              <p>Comment: <%= booking.comment %></p>
+                              <p>Starttime: <%= booking.start_time %></p>
+                              <p>Endtime: <%= booking.end_time %></p>
+                              <p>Checked In? <%= booking.checked_in ? "✅" : "❌" %></p>
+                          </div>
+                      </div>
+                    <div class="card-footer mx-2">
+                      <div class="row">
+                          <small class="text-muted"><p>⭐️ favorite</p></small>
+                          <small class="text-muted"><p>capacity: <%= booking.facility.capacity %></p></small>
+                          <small class="text-muted"><p>Utility: 80%</p></small>
+                      </div>
+                    </div>
+                    </div>
+                </div>
+              </div>
+            <% end %>
           </div>
-      </div>
-    <% end %>
+        </div>
+      <% end %>
+    </div>
 </div>

@@ -15,13 +15,13 @@
             <%= link_to "Home", "/", class: "nav-link text-white" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Activity Journal", "bookings", class: "nav-link text-white" %>
+            <%= link_to "Activity Journal", "/bookings", class: "nav-link text-white" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "unnamed.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "All facilities", "facilities", class: "dropdown-item" %>
-              <%= link_to "Bookings", "bookings", class: "dropdown-item" %>
+              <%= link_to "All facilities", "/facilities", class: "dropdown-item" %>
+              <%= link_to "Bookings", "/bookings", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
