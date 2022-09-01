@@ -17,7 +17,7 @@
 
     <h3 class="text-center mb-3">Current Utility rate is <span style="color: #76FF03;"><%= rand(20..80) %>%</span></h3>
     <div class="d-flex justify-content-center">
-      <%= column_chart Booking.where(facility_id: params[:id]).group_by_day_of_week(:end_time, format: "%a").count, colors: ["#76FF03"], library: {borderRadius: 8, }%>
+      <%= column_chart Booking.where(facility_id: params[:id]).group_by_day_of_week(:end_time, time_zone: "Berlin", format: "%a").count, colors: ["#76FF03"], library: {borderRadius: 8 }%>
     </div>
   </div>
   <div class="row py-5">
