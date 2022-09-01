@@ -67,7 +67,7 @@ puts "Creating facilities..."
     description: Faker::TvShows::Friends.quote,
     address: Faker::Address.street_name,
     capacity: rand(20..50),
-    category: Category.all[rand(0..8)],
+    category_id: rand(1..6),
     picture: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
   )
   puts "#{i + 1}. #{facility.name}"
