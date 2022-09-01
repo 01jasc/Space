@@ -43,5 +43,9 @@
       <% else %>
         <%= link_to "Go to Login", new_user_session_path  %>
       <% end %>
+
+
+
+      <%= column_chart Booking.group_by_day_of_week(:created_at, format: "%a").count, colors: ["#76FF03"] %>
   </div>
 </div>
