@@ -7,13 +7,19 @@
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Creating categories..."
 9.times do |i|
-  category = Category.create!(
+  Category.create!(
     title: %w[Fitness Climbing MMA Volleyball Swimming Badminton].sample,
     explanation: Faker::TvShows::Friends.quote,
     icon: "https://kitt.lewagon.com/placeholder/users/ssaunier",
     capacity_type: %w[People Courts].sample,
+    img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    title: "Fitness",
+    explanation: "Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, occupations and daily activities. Physical fitness is generally achieved through proper nutrition, moderate-vigorous physical exercise, and sufficient rest along with a formal recovery plan.
+    Before the Industrial Revolution, fitness was defined as the capacity to carry out the day's activities without undue fatigue or lethargy. However, with automation and changes in lifestyles, physical fitness is now considered a measure of the body's ability to function efficiently and effectively in work and leisure activities, to be healthy, to resist hypokinetic diseases, improve immune system and to meet emergency situations.",
+    icon: "<i class='fa-solid fa-dumbbell'></i>",
+    capacity_type: %w[People Courts].sample,
     img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-  )
+)
 end
 
 Faker::Config.locale = 'de'
