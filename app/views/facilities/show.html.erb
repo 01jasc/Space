@@ -6,7 +6,7 @@
 </div>
 <div class="container">
   <div id="sub-info" class="d-flex justify-content-between">
-    <p>Category: <%= Category.where(id: @facility.category_id)[0][:title]  %> <%= sanitize Category.where(id: @facility.category_id)[0][:icon] %></p>
+    <p>Category: <%= Category.where(id: @facility.category_id)[0][:title]  %> <span style="color: #76FF03";><%= sanitize Category.where(id: @facility.category_id)[0][:icon] %></span></p>
     <p>Max. Capacity: <%= @facility.capacity %></p>
     <p>Rating: 4/5 ⭐️</p>
   </div>
