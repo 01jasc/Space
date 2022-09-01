@@ -1,0 +1,27 @@
+.card {
+  flex-direction: row;
+  color: white;
+  padding: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+  .card img {
+    width: 40%;
+  }
+}
+
+.my_video {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  object-fit: cover;
+  top: 0;
+  z-index: -2;
+  opacity: 0.6;
+ }
+
+.card-footer {
+  position: relative;
+}

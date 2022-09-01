@@ -6,6 +6,11 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+  # def new
+  #   @facility = Facility.find(params[:facility_id])
+  #   @booking = Booking.new
+  # end
+
   def create
     @booking = Booking.new(booking_params)
     @facility = Facility.find(params[:facility_id])
