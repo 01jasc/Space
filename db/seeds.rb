@@ -6,14 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Creating categories..."
-
-  Category.create!(
-    title: %w[Fitness Climbing MMA Volleyball Swimming Badminton].sample,
-    explanation: Faker::TvShows::Friends.quote,
-    icon: "https://kitt.lewagon.com/placeholder/users/ssaunier",
-    capacity_type: %w[People Courts].sample,
-    img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-  )
 puts "creating fitness category"
 Category.create!(
   title: "Fitness",
@@ -65,7 +57,6 @@ Category.create!(
   capacity_type: "Courts",
   img: "badminton.png"
 )
-
 
 Faker::Config.locale = 'de'
 Facility.destroy_all
