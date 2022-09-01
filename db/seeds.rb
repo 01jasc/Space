@@ -6,21 +6,33 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Creating categories..."
-9.times do |i|
+
   Category.create!(
     title: %w[Fitness Climbing MMA Volleyball Swimming Badminton].sample,
     explanation: Faker::TvShows::Friends.quote,
     icon: "https://kitt.lewagon.com/placeholder/users/ssaunier",
     capacity_type: %w[People Courts].sample,
-    img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-    title: "Fitness",
-    explanation: "Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, occupations and daily activities. Physical fitness is generally achieved through proper nutrition, moderate-vigorous physical exercise, and sufficient rest along with a formal recovery plan.
-    Before the Industrial Revolution, fitness was defined as the capacity to carry out the day's activities without undue fatigue or lethargy. However, with automation and changes in lifestyles, physical fitness is now considered a measure of the body's ability to function efficiently and effectively in work and leisure activities, to be healthy, to resist hypokinetic diseases, improve immune system and to meet emergency situations.",
-    icon: "<i class='fa-solid fa-dumbbell'></i>",
-    capacity_type: "People",
-    img: "fitness.png"
+    img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+  )
+puts "creating fitness category"
+Category.create!(
+  title: "Fitness",
+  explanation: "Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, occupations and daily activities. Physical fitness is generally achieved through proper nutrition, moderate-vigorous physical exercise, and sufficient rest along with a formal recovery plan.
+  Before the Industrial Revolution, fitness was defined as the capacity to carry out the day's activities without undue fatigue or lethargy. However, with automation and changes in lifestyles, physical fitness is now considered a measure of the body's ability to function efficiently and effectively in work and leisure activities, to be healthy, to resist hypokinetic diseases, improve immune system and to meet emergency situations.",
+  icon: "<i class='fa-solid fa-dumbbell'></i>",
+  capacity_type: "People",
+  img: "fitness.png"
 )
-end
+puts "creating climbing category"
+Category.create!(
+  title: "Climbing",
+  explanation: "Climbing is the activity of using one's hands, feet, or any other part of the body to ascend a steep topographical object. It is done for locomotion, recreation and competition, and within trades that rely on ascension; such as emergency rescue and military operations. It is done indoors and out, on natural and man-made structures.
+  Professional mountain guides or rock climbing guides, such as members of the IFMGA, have been known to be a historically significant element of developing the popularity of the sport in the natural environment, and remain so today.",
+  icon: "<i class='fa-solid fa-mountain-sun'></i>",
+  capacity_type: "People",
+  img: "climbing.png"
+)
+
 
 Faker::Config.locale = 'de'
 Facility.destroy_all
