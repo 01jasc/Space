@@ -72,17 +72,18 @@ body {
 
 .join-now {
   display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 16px 0px;
-gap: 40px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  // padding: 16px 0px;
+  gap: 80px;
+  height: 10vh;
 
-position: absolute;
-width: 1440px;
-height: 72px;
-left: 0px;
-top: 1156px;
-
-background: #76FF03;
-}
+  // position: absolute;
+  // width: 1440px;
+  // height: 72px;
+  // left: 0px;
+  // top: 1156px;
+  font-size: 24px;
+  background: #76FF03;
+  }
