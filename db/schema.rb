@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_142720) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_01_105029) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,10 +27,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_142720) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.text "explanation"
+    t.string "icon"
+    t.string "capacity_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "img"
+  end
+
   create_table "facilities", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "category"
     t.string "address"
     t.integer "capacity"
     t.float "longitude"
@@ -38,6 +47,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_142720) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_facilities_on_category_id"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -66,6 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_142720) do
 
   add_foreign_key "bookings", "facilities"
   add_foreign_key "bookings", "users"
+  add_foreign_key "facilities", "categories"
   add_foreign_key "ratings", "facilities"
   add_foreign_key "ratings", "users"
 end
