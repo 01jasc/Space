@@ -25,9 +25,58 @@
   </section>
 </div>
 
-<section class="Container section-sports">
-<div class="row">
-    <div class="col">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
     </div>
-    <div class="col">
-</section>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container flex items-center justify-center min-h-screen">
+  <h1>Select your favorite sport</h1>
+    <% @facilities.each do |facility|  %>
+      <div class="card-trip mb-3">
+          <div class="card-trip-infos">
+            <div>
+              <h3>Name: <%= booking.facility.name %></h3>
+              <p>Comment: <%= booking.comment %></p>
+              <p>Starttime: <%= booking.start_time %></p>
+              <p>Endtime: <%= booking.end_time %></p>
+              <p>Checked In? <%= booking.checked_in ? "✅" : "❌" %></p>
+            </div>
+          </div>
+      </div>
+    <% end %>
+</div>
