@@ -45,9 +45,17 @@ puts "creating volleyball category"
 Category.create!(
   title: "Volleyball",
   explanation: "Volleyball is a team sport in which two teams of six players are separated by a net. Each team tries to score points by grounding a ball on the other team's court under organized rules. It has been a part of the official program of the Summer Olympic Games since Tokyo 1964. Beach volleyball was introduced to the programme at the Atlanta 1996. The adapted version of volleyball at the Summer Paralympic Games is sitting volleyball.",
-  icon: "<i class='fa-solid fa-hand-fist'></i>",
+  icon: "<i class='fa-solid fa-volleyball'></i>",
+  capacity_type: "Courts",
+  img: "volleyball.png"
+)
+puts "creating swimming category"
+Category.create!(
+  title: "Swimming",
+  explanation: "Swimming is the self-propulsion of a person through water, or other liquid, usually for recreation, sport, exercise, or survival. Locomotion is achieved through coordinated movement of the limbs and the body to achieve hydrodynamic thrust which results in directional motion. Humans can hold their breath underwater and undertake rudimentary locomotive swimming within weeks of birth, as a survival response.",
+  icon: "<i class='fa-solid fa-person-swimming'></i>",
   capacity_type: "People",
-  img: "mma.png"
+  img: "swimming.png"
 )
 
 Faker::Config.locale = 'de'
