@@ -31,15 +31,14 @@ puts "Creating users..."
 end
 
 puts "Creating bookings..."
-9.times do |i|
+1000.times do |i|
   booking = Booking.create!(
     comment: Faker::TvShows::NewGirl.quote,
-    start_time: Faker::Date.in_date_period(year: 2022, month: 8),
-    end_time: Faker::Date.in_date_period(year: 2022, month: 9),
+    start_time: Faker::Date.backward(days: 14),
+    end_time: Faker::Date.backward(days: 14),
     user_id: 1,
-    facility_id: 1,
+    facility_id: rand(1..20),
     checked_in: [true, false].sample
   )
 end
 puts "Finished!"
-
