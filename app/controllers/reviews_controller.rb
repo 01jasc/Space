@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+  before_action :set_facility, :set_user, only: %i[new create]
   def create
     @review = Review.new(review_params)
     @review.facility = @facility
@@ -35,7 +35,11 @@ class ReviewsController < ApplicationController
     @facility = Facility.find(params[:facility_id])
   end
 
+  def set_user
+    @user = current_user
+  end
+
   def review_params
-    params.require(:review).permit(:comment)
+    params.require(:review).permit(:comment, :rating)
   end
 end
