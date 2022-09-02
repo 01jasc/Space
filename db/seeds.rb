@@ -73,15 +73,20 @@ puts "Creating facilities..."
   puts "#{i + 1}. #{facility.name}"
 end
 
-puts "Creating users..."
-1.times do |i|
-  user = User.create!(
-    email: "jan@test.com",
-    password: "123456",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name
-  )
-end
+puts "Creating Jan..."
+User.create!(
+  email: "jan@test.com",
+  password: "123456",
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name
+)
+puts "Creating Pam..."
+User.create!(
+  email: "pam@test.com",
+  password: "123456",
+  first_name: "Pam",
+  last_name: "Reif"
+)
 
 puts "Creating bookings..."
 1000.times do |i|
@@ -89,7 +94,7 @@ puts "Creating bookings..."
     comment: Faker::TvShows::NewGirl.quote,
     start_time: Faker::Date.backward(days: 14),
     end_time: Faker::Date.backward(days: 14),
-    user_id: 1,
+    user_id: 2,
     facility_id: rand(1..20),
     checked_in: [true, false].sample
   )
