@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+puts "Seeding the DB..."
 puts "Creating categories..."
 puts "creating fitness category"
 Category.create!(
@@ -73,19 +67,37 @@ puts "Creating facilities..."
   puts "#{i + 1}. #{facility.name}"
 end
 
-puts "Creating users..."
-1.times do |i|
-  user = User.create!(
-    email: "jan@test.com",
-    password: "123456",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name
+puts "Creating Jan..."
+User.create!(
+  email: "jan@test.com",
+  password: "123456",
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name
+)
+puts "Creating Pam..."
+User.create!(
+  email: "pam@test.com",
+  password: "123456",
+  first_name: "Pam",
+  last_name: "Reif"
+)
+
+puts "Creating bookings for Pam..."
+puts "...this takes a few seconds..."
+1000.times do
+  Booking.create!(
+    comment: Faker::TvShows::NewGirl.quote,
+    start_time: Faker::Date.backward(days: 14),
+    end_time: Faker::Date.backward(days: 14),
+    user_id: 2,
+    facility_id: rand(1..20),
+    checked_in: [true, false].sample
   )
 end
 
-puts "Creating bookings..."
-1000.times do |i|
-  booking = Booking.create!(
+puts "Create bookings for Jan..."
+5.times do
+  Booking.create!(
     comment: Faker::TvShows::NewGirl.quote,
     start_time: Faker::Date.backward(days: 14),
     end_time: Faker::Date.backward(days: 14),
@@ -94,5 +106,4 @@ puts "Creating bookings..."
     checked_in: [true, false].sample
   )
 end
-
 puts "Finished!"
