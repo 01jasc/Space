@@ -9,28 +9,30 @@
         <div class="row d-flex py-4">
           <div class="col my-1">
             <%= link_to facility_path(facility), class: "text-decoration-none text-black"  do %>
-              <div class="row d-flex">
-                <div class="card glass-card shadow-xl rounded-lg horizontal">
-                  <img class="card-img shadow-box " src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Card image cap" style="width: 350px">
-                      <div class="card-block">
-                    <div class="card-body">
-                          <div class="card-title py-2">
-                            <h1><%= facility.name %></h1>
-                          </div>
-                          <div class="card-text">
-                            <p><%= facility.description %></p>
-                          </div>
+            <div class="card glass-card shadow-xl rounded-lg horizontal">
+              <img class="card-img shadow-box " src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Card image cap" style="width: 350px">
+                <div class="card-body">
+                      <div class="card-title py-2">
+                        <h1><%= facility.name %></h1>
                       </div>
-                    <div class="card-footer mx-2">
-                      <div class="row">
-                          <small class="text-muted"><p>⭐️ favorite</p></small>
-                          <small class="text-muted"><p>capacity: <%= facility.capacity %></p></small>
-                          <small class="text-muted"><p>Utility: 80%</p></small>
+                      <div class="card-text">
+                        <p><%= facility.description %></p>
                       </div>
-                    </div>
-                    </div>
-                </div>
-              </div>
+                        <div class="card-footer mx-2">
+                      <div class="row d-flex">
+                              <div class="col-xs-6 col-sm-6 col-lg-3">
+                                <small class="text-muted"><p>⭐️ favorite</p></small>
+                              </div>
+                              <div class="col-xs-6 col-sm-6 col-lg-3">
+                                <small class="text-muted"><p>capacity: <%= facility.capacity %></p></small>
+                              </div>
+                              <div class="col-xs-6 col-sm-6 col-lg-3">
+                                <small class="text-muted"><p>Utility: 80%</p></small>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
             <% end %>
           </div>
         </div>
