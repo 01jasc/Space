@@ -4,6 +4,7 @@ class FacilitiesController < ApplicationController
   end
 
   def show
+    @review = Review.new
     @facility = Facility.find(params[:id])
     @booking = Booking.new
   end
