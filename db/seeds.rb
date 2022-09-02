@@ -88,7 +88,8 @@ User.create!(
   last_name: "Reif"
 )
 
-puts "Creating bookings..."
+puts "Creating bookings for Pam..."
+puts "...this takes a few seconds..."
 1000.times do |i|
   booking = Booking.create!(
     comment: Faker::TvShows::NewGirl.quote,
@@ -100,4 +101,15 @@ puts "Creating bookings..."
   )
 end
 
+puts "Create bookings for Jan..."
+5.times do |i|
+  booking = Booking.create!(
+    comment: Faker::TvShows::NewGirl.quote,
+    start_time: Faker::Date.backward(days: 14),
+    end_time: Faker::Date.backward(days: 14),
+    user_id: 1,
+    facility_id: rand(1..20),
+    checked_in: [true, false].sample
+  )
+end
 puts "Finished!"
