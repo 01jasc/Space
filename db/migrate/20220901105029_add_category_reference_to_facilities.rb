@@ -3,3 +3,6 @@ class AddCategoryReferenceToFacilities < ActiveRecord::Migration[7.0]
     add_reference :facilities, :category, null: false, foreign_key: true
   end
 end
+
+
+
