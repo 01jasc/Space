@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-  before_action :set_offer, only: %i[create]
 
   def create
     @review = Review.new(review_params)
