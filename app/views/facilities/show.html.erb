@@ -56,9 +56,13 @@
       </div>
     <% end %>
   </div>
+  <% if @reviews.blank? %>
+  <p class="text-center">Be the first to leave a Review for <span style="color: #76FF03"><%= @facility.name %></span></p>
+  <% else %>
+
 
   <div>
-  <h3>More Reviews of <%= @facility.name %></h3>
+  <h3 class="text-center">Reviews for <%= @facility.name %></h3>
   <% @reviews.each do |review| %>
   <div class="glass-card py-3 px-5 mb-3">
     <div>
@@ -69,6 +73,6 @@
     </div>
   </div>
   <% end %>
-
+<% end %>
   </div>
 </div>

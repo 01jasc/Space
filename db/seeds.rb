@@ -119,8 +119,8 @@ end
 
 puts "Destroying all Reviews..."
 Review.destroy_all
-puts "Creating 250 Review..."
-250.times do
+puts "Creating Review..."
+20.times do
   Review.create!(
     content: Faker::TvShows::Suits.quote,
     rating: rand(1..5),
