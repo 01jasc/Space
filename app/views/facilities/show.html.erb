@@ -16,7 +16,7 @@
     <% ratings.each do |rating| %>
     <% ratings_arr.push(rating.rating) %>
     <% end %>
-    <p>Rating: <%= ratings_arr.sum / ratings_arr.size %></p>
+    <p>Rating: <%= "⭐️ " * (ratings_arr.sum / ratings_arr.size) %></p>
     <% end %>
   </div>
   <div class="container">
