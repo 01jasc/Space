@@ -20,6 +20,22 @@
       <%= column_chart Booking.where(facility_id: params[:id]).group_by_day_of_week(:end_time, time_zone: "Berlin", format: "%a").count, colors: ["#76FF03"], library: {borderRadius: 8 }%>
     </div>
   </div>
+
+  <div id="booking-form" class="row justify-content-center py-5 booking-form">
+      <% if current_user %>
+        <h3 class="text-center pb-2">Book a timeslot</h3>
+          <%= simple_form_for [@facility, @booking] do |f| %>
+            <%= f.input :start_time, as: :date, html5: true, input_html: { class: "glass-card input-date" } %>
+            <%= f.input :end_time, as: :date, html5: true, input_html: { class: "glass-card input-date" } %>
+            <div class="text-center py-2">
+              <%= f.submit "Book Offer", class: "glass-button" %>
+            </div>
+          <% end %>
+      <% else %>
+        <%= link_to "Go to Login", new_user_session_path  %>
+      <% end %>
+  </div>
+
   <div class="row py-5">
     <div class="col">
       <%= image_tag Category.where(id: @facility.category_id)[0][:img] %>
@@ -30,29 +46,14 @@
     </div>
   </div>
 
-  <div id="booking-form" class="row justify-content-center py-5">
-      <% if current_user %>
-        <h3 class="text-center pb-2">Book a timeslot</h3>
-          <%= simple_form_for [@facility, @booking] do |f| %>
-            <%= f.input :start_time, as: :date, html5: true, input_html: { class: "glass-card" } %>
-            <%= f.input :end_time, as: :date, html5: true, input_html: { class: "glass-card" } %>
-            <div class="text-center py-2">
-              <%= f.submit "Book Offer", class: "glass-button" %>
-            </div>
-          <% end %>
-      <% else %>
-        <%= link_to "Go to Login", new_user_session_path  %>
-      <% end %>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4">
-        <%= simple_form_for [@facility, @review] do |f| %>
-          <%= f.input :content %>
-          <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>          <%= f.submit "Send your review" %>
-        <% end %>
+  <div id="rating-form" class="row justify-content-center py-5">
+    <h3 class="text-center">Leave a Review for <%= @facility.name %></h3>
+    <%= simple_form_for [@facility, @review] do |f| %>
+      <%= f.input :content, input_html: { class: "glass-card item-input"} %>
+      <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+      <div class="text-center">
+        <%= f.submit "Send your review", class: "glass-button" %>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
