@@ -94,7 +94,7 @@ CSV.foreach(filepath, col_sep: ";") do |row|
   # counter = 0
   facility = Facility.create(
     name: row[1],
-    description: Faker::TvShows::Friends.quote,
+    description: row[2],
     category: Category.find_by(title: row[3]),
     address: row[4],
     picture: row[5],
