@@ -1,1 +1,7 @@
-<p><%= review.content %></p>
+<div class="glass-card py-3 px-5 mb-3">
+  <div  data-insert-in-list-target="items">
+    <p><%= "⭐️" * review.rating %> <%= current_user.first_name %> <%= current_user.last_name %> on <%= review.created_at.strftime("%B %d, %Y") %> wrote:</p>
+  </div>
+  <div>
+    <p><%= review.content %></p>
+  </div>
