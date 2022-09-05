@@ -1,51 +1,35 @@
-<div class="container move-down">
-  <h1 class="text-center mb-3">My Dashboard</h1>
-  <div class="card glass-card">
-    <div class="card-body">
-      <div class="card-title">
-        <h2>Hello, Jane!</h2>
+<div class="dashboard-background">
+  <div class="container move-down">
+    <h1 class="text-center mb-3">My Dashboard</h1>
+    <div class="card glass-card">
+      <div class="card-body">
+        <div class="card-title">
+          <h2>Hello, Jane!</h2>
+        </div>
+        <%= image_tag "unnamed.jpg", class: "avatar-larger"%>
+        </div>
       </div>
-      <%= image_tag "unnamed.jpg", class: "avatar-larger"%>
-      </div>
-    </div>
-</div>
-<div class="container flex items-center justify-center min-h-screen">
-  <h1 class="text-center text-white m-2">Activity Journal</h1>
-    <div id="activities">
-      <% @bookings.each do |booking| %>
-        <div class="row d-flex py-2">
-          <div class="col my-1">
-            <%= link_to bookings_path(booking), class: "text-decoration-none text-black"  do %>
-              <div class="card glass-card shadow-xl rounded-lg horizontal">
-                <img class="card-img shadow-box " src= <%= booking.facility.picture %>  alt="Card image cap" style="width: 350px">
-                <div class="card-body">
-                  <div class="card-title py-2">
-                      <h3><%= booking.facility.name %></h3>
+  </div>
+  <div class="container">
+    <h1 class="text-center text-white m-4 p-3">Activity Journal</h1>
+    <div class="row">
+      <div class="col-12 cards-frame">
+            <% @bookings.each do |booking| %>
+
+              <div class="booking-card glass-card">
+                  <div class="bg-booking" style="background-image: url('<%= booking.facility.picture %>')">
                   </div>
-                  <div class="card-content">
-                    <p>Comment: <%= booking.comment %></p>
+                  <div class="card-content glass-card mt-3 p-2">
+                    <h3><%= booking.facility.name %></h3>
                     <p>Starttime: <%= booking.start_time %></p>
                     <p>Endtime: <%= booking.end_time %></p>
                     <p>Checked In? <%= booking.checked_in ? "✅" : "❌" %></p>
+                    <strong class="green-footer"><h4>⭐️ favorite</h4></strong>
                   </div>
-                  <div class="card-footer mx-2">
-                    <div class="row d-flex">
-                      <div class="col-xs-6 col-sm-6 col-lg-3">
-                        <strong class="green-footer"><h4>⭐️ favorite</h4></strong>
-                      </div>
-                      <div class="col-xs-6 col-sm-6 col-lg-3">
-                        <strong class="green-footer"><h4>capacity: <%= booking.facility.capacity %></h4></strong>
-                      </div>
-                      <div class="col-xs-6 col-sm-6 col-lg-3">
-                        <strong class="green-footer"><h4>Utility: 80%</h4></strong>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+
+            <% end  %>
+      </div>
     </div>
+  </div>
 </div>
