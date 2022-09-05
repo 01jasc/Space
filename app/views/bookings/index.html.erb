@@ -3,12 +3,25 @@
     <h1 class="text-center mb-3">My Dashboard</h1>
     <div class="card glass-card">
       <div class="card-body">
-        <div class="card-title">
-          <h2>Hello, Jane!</h2>
+       <div class="row d-flex py-4">
+        <div class="col my-1">
+         <div class="card-title">
+          <h2>Hello, <%= current_user.first_name %>!</h2>
         </div>
         <%= image_tag "unnamed.jpg", class: "avatar-larger"%>
+      </div>
+        <div class="col">
+        <h3>
+          Your bookings in total:
+          <br>
+          <p class="green-footer text-center">
+            <%= @bookings.count%>
+          </p>
+        </h3>
         </div>
       </div>
+      </div>
+    </div>
   </div>
   <div class="container">
     <h1 class="text-center text-white m-4 p-3">Activity Journal</h1>
