@@ -39,6 +39,17 @@
   <p>Join now </p>
 </div>
 
+<div class="align-center-searchbar">
+    <%= form_with url: facilities_path, method: :get, class: "d-flex py-5 search-bar" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control fonti",
+        placeholder: "Find your sport"
+      %>
+      <%= submit_tag "Search", class: "btn btn-new" %>
+    <% end %>
+</div>
+
 <div class="row justify-content-around sports-header">
   <div class="col sports-header-text">
     <p>Select your favorite sports</p>
