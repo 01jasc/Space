@@ -7,7 +7,7 @@
 <div class="container">
   <div id="sub-info" class="d-flex justify-content-between">
     <p>Category: <%= Category.where(id: @facility.category_id)[0][:title]  %> <span style="color: #76FF03";><%= sanitize Category.where(id: @facility.category_id)[0][:icon] %></span></p>
-    <p>Max. Capacity: <%= @facility.capacity %></p>
+    <p>Max. Capacity: <%= @facility.capacity %> <%= @facility.category.capacity_type %></p>
     <% if Review.where(facility_id: params[:id]) == [] %>
       <p>Rating: No Rating yet</p>
     <% else %>
@@ -16,7 +16,7 @@
       <% ratings.each do |rating| %>
         <% ratings_arr.push(rating.rating) %>
       <% end %>
-      <p>Rating: <%= "⭐️ " * (ratings_arr.sum / ratings_arr.size) %></p>
+      <p>Rating: <%= "⭐️ " * (ratings_arr.sum / ratings_arr.size) %>(<%= pluralize ratings_arr.size, "rating" %>)</p>
     <% end %>
   </div>
   <div class="container">
@@ -24,7 +24,7 @@
   </div>
   <div id="graph" class="py-5">
 
-    <h3 class="text-center mb-3">Current Utility rate is <span style="color: #76FF03;"><%= rand(20..80) %>%</span></h3>
+    <h3 class="text-center mb-3">Current utilization rate is <span style="color: #76FF03;"><%= rand(20..80) %>%</span></h3>
     <div class="d-flex justify-content-center">
       <%= column_chart Booking.where(facility_id: params[:id]).group_by_day_of_week(:end_time, time_zone: "Berlin", format: "%a").count, colors: ["#76FF03"], library: {borderRadius: 8 }%>
     </div>
