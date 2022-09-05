@@ -5,14 +5,12 @@ class ReviewsController < ApplicationController
     @review.facility = @facility
     @review.user = current_user
 
-    respond_to do |format|
-      if @review.save
-        format.html { redirect_to restaurant_path(@restaurant) }
-        format.json # Follow the classic Rails flow and look for a create.json view
+      if @review.persisted?
+        json.form render(partial: "reviews/form", formats: :html, locals: {restaurant: @restaurant, review: Review.new})
+        json.inserted_item render(partial: "restaurants/review", formats: :html, locals: {review: @review})
       else
-        format.html { render "restaurants/show", status: :unprocessable_entity }
-        format.json # Follow the classic Rails flow and look for a create.json view
-      end
+        json.form render(partial: "reviews/form", formats: :html, locals: {restaurant: @restaurant, review: @review})
+
     end
   end
 
