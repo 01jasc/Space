@@ -8,7 +8,16 @@
   <div id="sub-info" class="d-flex justify-content-between">
     <p>Category: <%= Category.where(id: @facility.category_id)[0][:title]  %> <span style="color: #76FF03";><%= sanitize Category.where(id: @facility.category_id)[0][:icon] %></span></p>
     <p>Max. Capacity: <%= @facility.capacity %></p>
-    <p>Rating: 4/5 ⭐️</p>
+    <% if Review.where(facility_id: params[:id]) == [] %>
+      <p>Rating: No Rating yet</p>
+    <% else %>
+    <% ratings = Review.where(facility_id: params[:id])  %>
+    <% ratings_arr = [] %>
+    <% ratings.each do |rating| %>
+    <% ratings_arr.push(rating.rating) %>
+    <% end %>
+    <p>Rating: <%= ratings_arr.sum / ratings_arr.size %></p>
+    <% end %>
   </div>
   <div class="container">
     <p>Description: <%= @facility.description * 5%></p>
