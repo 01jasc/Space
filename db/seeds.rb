@@ -82,6 +82,16 @@ User.create!(
   last_name: "Reif"
 )
 
+puts "Creating more Fake Users..."
+100.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: "123456",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name
+  )
+end
+
 puts "Creating bookings for Pam..."
 puts "...this takes a few seconds..."
 1000.times do
@@ -104,6 +114,16 @@ puts "Create bookings for Jan..."
     user_id: 1,
     facility_id: rand(1..20),
     checked_in: [true, false].sample
+  )
+end
+
+puts "Creating 250 Review..."
+250.times do
+  Review.create!(
+    content: Faker::TvShows::Suits.quote,
+    rating: rand(1..5),
+    user_id: rand(1..100),
+    facility_id: rand(1..20)
   )
 end
 puts "Finished!"
