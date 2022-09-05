@@ -11,16 +11,16 @@
     <% if Review.where(facility_id: params[:id]) == [] %>
       <p>Rating: No Rating yet</p>
     <% else %>
-    <% ratings = Review.where(facility_id: params[:id])  %>
-    <% ratings_arr = [] %>
-    <% ratings.each do |rating| %>
-    <% ratings_arr.push(rating.rating) %>
-    <% end %>
-    <p>Rating: <%= "⭐️ " * (ratings_arr.sum / ratings_arr.size) %></p>
+      <% ratings = Review.where(facility_id: params[:id])  %>
+      <% ratings_arr = [] %>
+      <% ratings.each do |rating| %>
+        <% ratings_arr.push(rating.rating) %>
+      <% end %>
+      <p>Rating: <%= "⭐️ " * (ratings_arr.sum / ratings_arr.size) %></p>
     <% end %>
   </div>
   <div class="container">
-    <p>Description: <%= @facility.description * 5%></p>
+    <p>Description: <%= @facility.description * 5 %></p>
   </div>
   <div id="graph" class="py-5">
 
@@ -65,23 +65,22 @@
       </div>
     <% end %>
   </div>
+
   <% if @reviews.blank? %>
-  <p class="text-center">Be the first to leave a Review for <span style="color: #76FF03"><%= @facility.name %></span></p>
+    <p class="text-center">Be the first to leave a Review for <span style="color: #76FF03"><%= @facility.name %></span></p>
   <% else %>
-
-
-  <div>
-  <h3 class="text-center">Reviews for <%= @facility.name %></h3>
-  <% @reviews.each do |review| %>
-  <div class="glass-card py-3 px-5 mb-3">
     <div>
-      <p><%= "⭐️" * review.rating %> <%= review.user.first_name %> <%= review.user.last_name %> on <%= review.created_at.strftime("%B %d, %Y") %> wrote:</p>
-    </div>
-    <div>
-      <p><%= review.content %></p>
-    </div>
-  </div>
+      <h3 class="text-center">Reviews for <%= @facility.name %></h3>
+      <% @reviews.each do |review| %>
+        <div class="glass-card py-3 px-5 mb-3">
+          <div>
+            <p><%= "⭐️" * review.rating %> <%= review.user.first_name %> <%= review.user.last_name %> on <%= review.created_at.strftime("%B %d, %Y") %> wrote:</p>
+          </div>
+          <div>
+            <p><%= review.content %></p>
+          </div>
+        </div>
+      <% end %>
   <% end %>
-<% end %>
-  </div>
+    </div>
 </div>
