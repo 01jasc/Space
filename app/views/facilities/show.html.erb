@@ -60,8 +60,14 @@
   <div>
   <h3>More Reviews of <%= @facility.name %></h3>
   <% @reviews.each do |review| %>
-  <p><%= review.content %></p>
-  <p><%= review.rating %></p>
+  <div class="glass-card py-3 px-5">
+    <div>
+      <p><%= "⭐️" * review.rating %> <%= current_user.first_name %> <%= current_user.last_name %> on <%= review.created_at.strftime("%B %d, %Y") %> wrote:</p>
+    </div>
+    <div>
+      <p><%= review.content %></p>
+    </div>
+  </div>
   <% end %>
 
   </div>
