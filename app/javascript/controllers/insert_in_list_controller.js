@@ -21,9 +21,8 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        console.log(data)
         if (data.inserted_item) {
-          this.itemsTarget.insertAdjacentHTML(this.positionValue, data.inserted_item)
+          this.itemsTarget.insertAdjacentHTML("beforebegin", data.inserted_item)
         }
         this.formTarget.outerHTML = data.form
       })

@@ -55,9 +55,9 @@
     </div>
   </div>
 
-<div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+<div data-controller="insert-in-list" data-insert-in-list-position-value="afterbegin">
   <div id="rating-form" class="row justify-content-center py-5">
-    <h3 class="text-center">Leave a Review for <%= @facility.name %></h3>
+    <h3 class="text-center mb-5">Leave a Review for <%= @facility.name %></h3>
     <%= simple_form_for([@facility, @review], data: {insert_in_list_target: "form", action: "submit->insert-in-list#send"}) do |f| %>
       <%= f.input :content, input_html: { class: "glass-card item-input"} %>
       <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
@@ -71,10 +71,10 @@
     <p class="text-center">Be the first to leave a Review for <span style="color: #76FF03"><%= @facility.name %></span></p>
   <% else %>
     <div>
-      <h3 class="text-center">Reviews for <%= @facility.name %></h3>
+      <h3 class="text-center mb-5">Reviews for <%= @facility.name %></h3>
       <% @reviews.each do |review| %>
-        <div class="glass-card py-3 px-5 mb-3">
-          <div  data-insert-in-list-target="items">
+        <div class="glass-card py-3 px-5 mb-3" data-insert-in-list-target="items">
+          <div>
             <p><%= "⭐️" * review.rating %> <%= review.user.first_name %> <%= review.user.last_name %> on <%= review.created_at.strftime("%B %d, %Y") %> wrote:</p>
           </div>
           <div>
