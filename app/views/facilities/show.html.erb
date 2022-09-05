@@ -59,7 +59,7 @@
 
   <div>
   <h3>More Reviews of <%= @facility.name %></h3>
-  <%= @reviews.each do |review| %>
+  <% @reviews.each do |review| %>
   <p><%= review.content %></p>
   <p><%= review.rating %></p>
   <% end %>
