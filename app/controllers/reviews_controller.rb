@@ -4,21 +4,21 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.facility = @facility
     @review.user = current_user
-    if @review.save
-      redirect_to facilities_path
-    else
-      render 'facilities/show', status: :unprocessable_entity
+
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to restaurant_path(@restaurant) }
+        format.json # Follow the classic Rails flow and look for a create.json view
+      else
+        format.html { render "restaurants/show", status: :unprocessable_entity }
+        format.json # Follow the classic Rails flow and look for a create.json view
+      end
     end
   end
 
   def update
     @review = Review.find(params[:review_id])
     @review.update(review_params)
-
-    # respond_to do |format|
-    #   format.html { redirect_to facility_path }
-    #   format.text { render partial: "movies/movie_infos", locals: {movie: @movie}, formats: [:html] }
-    # end
   end
 
   def destroy
