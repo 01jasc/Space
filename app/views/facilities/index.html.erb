@@ -10,7 +10,7 @@
           <div class="col my-1">
             <%= link_to facility_path(facility), class: "text-decoration-none text-black"  do %>
             <div class="card glass-card shadow-xl rounded-lg horizontal">
-                     <% if facility.picture.present? %>
+                  <% if facility.picture.present? %>
                     <%= image_tag facility.picture, class: "card-img shadow-box", style: "width: 350px" %>
                   <% else %>
                     <img class="card-img shadow-box " src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Card image cap" style="width: 350px">
