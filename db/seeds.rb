@@ -53,6 +53,7 @@ Category.create!(
 )
 
 Faker::Config.locale = 'de'
+puts "Destroying all the facilities..."
 Facility.destroy_all
 puts "Creating facilities..."
 20.times do |i|
@@ -117,6 +118,8 @@ puts "Create bookings for Jan..."
   )
 end
 
+puts "Destroying all Reviews..."
+Review.destroy_all
 puts "Creating 250 Review..."
 250.times do
   Review.create!(
