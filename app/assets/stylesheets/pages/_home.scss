@@ -13,8 +13,6 @@ body {
 
 .section-banner {
   background-image: url(https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80);
-  // box-sizing: border-box;
-  // box-sizing: content-box;
   background-size: cover;
   flex-direction: column;
   background-repeat: no-repeat;
@@ -84,8 +82,6 @@ body {
 .section-sports {
   height: 130vh;
   width: 100vw;
-  // padding-left: 10vw;
-  // padding-right: 10vw;
 }
 
 .sports-3-cards {
@@ -94,8 +90,6 @@ body {
   justify-content: center;
   align-items: center;
   justify-content: space-evenly;
-
-  // row justify-content-around
 }
 
 .sportcard {
@@ -130,4 +124,14 @@ body {
   color: white;
   opacity: 1;
   font-size: 28px;
+}
+
+.clickable.active {
+  color: inherit;
+  border-color: inherit;
+  
+}
+
+.clickable.active p {
+  color: #52ACF4;
 }

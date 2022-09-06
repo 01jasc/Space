@@ -45,40 +45,47 @@
   </div>
 </div>
 
-<section class="row Container section-sports">
+<section class="row Container section-sports" data-controller="selected">
+  <%# #link to der die erstellte url beinhaltet%>
+  <%# target das die url in query ändert (target in JS controller erstellen) %>
+  <%# google re-direct to new url with click / redirect to another webpage %>
+  <button data-action="click->selected#sendOfParams">
+      <p>Search Sports</p>
+  </button>
+
   <div class="sports-3-cards">
-    <div class="col-md-4 sportcard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      <p class="sports-cards-text">FITNESS</p>
+    <div class="col-md-4 sportcard clickable" data-action="click->selected#select" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1593079831268-3381b0db4a77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80)">
+      <p class="sports-cards-text">Gym</p>
     </div>
-    <div class="col-md-4 sportcard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-      <p class="sports-cards-text">BOULDERN</p>
+    <div class="col-md-4 sportcard clickable" data-action="click->selected#select" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+      <p class="sports-cards-text">Bouldering</p>
     </div>
-    <div class="col-md-4 sportcard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-      <p class="sports-cards-text">CLIMBING</p>
+    <div class="col-md-4 sportcard clickable" data-action="click->selected#select" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+      <p class="sports-cards-text">Climbing</p>
     </div>
   </div>
 
   <div class="sports-3-cards">
-    <div class="col-md-4 sportcard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-      <p class="sports-cards-text">SWIMMING</p>
+    <div class="col-md-4 sportcard clickable" data-action="click->selected#select" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+      <p class="sports-cards-text">Swimming</p>
     </div>
-    <div class="col-md-4 sportcard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-      <p class="sports-cards-text">TENNIS</p>
+    <div class="col-md-4 sportcard clickable" data-action="click->selected#select" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+      <p class="sports-cards-text">Tennis</p>
     </div>
-    <div class="col-md-4 sportcard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-      <p class="sports-cards-text">VOLLEYBALL</p>
+    <div class="col-md-4 sportcard clickable" data-action="click->selected#select" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+      <p class="sports-cards-text">Volleyball</p>
     </div>
   </div>
 
   <div class="sports-3-cards">
-    <div class="col-md-4 sportcard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+    <div class="col-md-4 sportcard clickable" data-action="click->selected#select" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
       <p class="sports-cards-text">MMA</p>
     </div>
-    <div class="col-md-4 sportcard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-      <p class="sports-cards-text">BADMINTON</p>
+    <div class="col-md-4 sportcard clickable" data-action="click->selected#select" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+      <p class="sports-cards-text">Badminton</p>
     </div>
-    <div class="col-md-4 sportcard" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-      <p class="sports-cards-text">KAJAKING</p>
+    <div class="col-md-4 sportcard clickable" data-action="click->selected#select" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+      <p class="sports-cards-text">Kayaking</p>
     </div>
   </div>
 </section>
