@@ -51,9 +51,9 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(-45deg, #76FF03 0%, #03FFD2 100% );
+  background: linear-gradient(45deg, #76FF03 0%, #03FFD2 100% );
   transform: translate3d(0px, 20px, 0) scale(0.95);
-  filter: blur(20px);
+  filter: blur(30px);
   opacity: var(0.7);
   transition: opacity 0.3s;
   border-radius: inherit;
