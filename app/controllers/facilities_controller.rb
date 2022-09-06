@@ -8,7 +8,7 @@ class FacilitiesController < ApplicationController
         Category.find_by(title: "Gym").facilities.each { |el| @facilities << el }
       end
       if params["Bouldering"] == "true"
-        Category.find_by(title: "Boulder").facilities.each { |el| @facilities << el }
+        Category.find_by(title: "Bouldering").facilities.each { |el| @facilities << el }
       end
       if params["Climbing"] == "true"
         Category.find_by(title: "Climbing").facilities.each { |el| @facilities << el }
@@ -29,7 +29,7 @@ class FacilitiesController < ApplicationController
         Category.find_by(title: "Badminton").facilities.each { |el| @facilities << el }
       end
       if params["Kayaking"] == "true"
-        Category.find_by(title: "Kajaking").facilities.each { |el| @facilities << el }
+        Category.find_by(title: "Kayaking").facilities.each { |el| @facilities << el }
       end
     end
 
