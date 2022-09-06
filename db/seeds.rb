@@ -133,6 +133,7 @@ User.create!(
   last_name: "Reif"
 )
 
+
 puts "Creating more users..."
 20.times do
   User.create(
@@ -153,7 +154,7 @@ puts "...this takes a few seconds..."
     end_time: Faker::Date.backward(days: 14),
     user_id: User.all.sample,
     facility_id: rand(1..20),
-    checked_in: [true, false].sample
+    checked_in: [true, true, true, false].sample
   )
 end
 
@@ -166,6 +167,18 @@ puts "Create bookings for Jan..."
     user_id: 1,
     facility_id: rand(1..20),
     checked_in: [true, false].sample
+  )
+end
+
+puts "Destroying all Reviews..."
+Review.destroy_all
+puts "Creating Review..."
+20.times do
+  Review.create!(
+    content: Faker::TvShows::Suits.quote,
+    rating: rand(1..5),
+    user_id: rand(1..100),
+    facility_id: rand(1..20)
   )
 end
 puts "Finished!"
