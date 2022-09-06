@@ -1,0 +1,160 @@
+
+
+
+.container-bubble {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  contain: layout;
+}
+
+.gradient-bubble {
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  border-radius: 250px;
+  background: linear-gradient(90deg, #76FF03 0%, #03FFD2 113.9%);
+  transform: rotate(90deg);
+
+  animation: vibrate 3s linear infinite both;
+
+  &.first {
+    position: absolute;
+    top: 1vw;
+    left: 5vw;
+  }
+  &.second {
+    position: absolute;
+    bottom: -15vw;
+    right: 10vw;
+    width: 30px;
+    height: 30px;
+    animation-delay: 0.8s;
+  }
+  &.third {
+    position: absolute;
+    top: 1vw;
+    left: 15vw;
+    width: 170px;
+    height: 170px;
+
+}
+&.fourth {
+  position: absolute;
+  top: 1vw;
+  left: 5vw;
+}
+&.fifth {
+  position: absolute;
+  bottom: -15vw;
+  right: 10vw;
+  width: 90px;
+  height: 90px;
+  animation-delay: 0.8s;
+}
+&.sixth {
+  position: absolute;
+  top: 115vw;
+  left: 10vw;
+  width: 170px;
+  height: 170px;
+
+}
+}
+
+
+.gradient-bubble:before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(45deg, #76FF03 0%, #03FFD2 100% );
+  transform: translate3d(0px, 20px, 0) scale(0.95);
+  filter: blur(30px);
+  opacity: var(0.7);
+  transition: opacity 0.3s;
+  border-radius: inherit;
+}
+.gradient-bubble::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  border-radius: inherit;
+}
+
+
+
+
+// keyframes
+
+@keyframes vibrate {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-4px, 6px);
+  }
+  40% {
+    transform: translate(-6px, -4px);
+  }
+  60% {
+    transform: translate(4px, 6px);
+  }
+  80% {
+    transform: translate(7px, -7px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes vibrate2 {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-7px, -7px);
+  }
+  40% {
+    transform: translate(-7px, 7px);
+  }
+  60% {
+    transform: translate(7px, 7px);
+  }
+  80% {
+    transform: translate(7px, -7px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes vibrate3 {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, -2px);
+  }
+  40% {
+    transform: translate(-2px, 2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}

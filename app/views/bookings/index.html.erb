@@ -1,51 +1,70 @@
-<div class="container move-down">
-  <h1 class="text-center mb-3">My Dashboard</h1>
-  <div class="card glass-card">
-    <div class="card-body">
-      <div class="card-title">
-        <h2>Hello, Jane!</h2>
-      </div>
-      <%= image_tag "unnamed.jpg", class: "avatar-larger"%>
-      </div>
-    </div>
+<div id="video">
+  <%= video_tag "dashboard-3.mov", autoplay: :autoplay, loop: :loop, muted: :muted, class: "my_video" %>
 </div>
-<div class="container flex items-center justify-center min-h-screen">
-  <h1 class="text-center text-white m-2">Activity Journal</h1>
-    <div id="activities">
-      <% @bookings.each do |booking| %>
-        <div class="row d-flex py-2">
-          <div class="col my-1">
-            <%= link_to bookings_path(booking), class: "text-decoration-none text-black"  do %>
-              <div class="card glass-card shadow-xl rounded-lg horizontal">
-                <img class="card-img shadow-box " src= <%= booking.facility.picture %>  alt="Card image cap" style="width: 350px">
-                <div class="card-body">
-                  <div class="card-title py-2">
-                      <h3><%= booking.facility.name %></h3>
-                  </div>
-                  <div class="card-content">
-                    <p>Comment: <%= booking.comment %></p>
-                    <p>Starttime: <%= booking.start_time %></p>
-                    <p>Endtime: <%= booking.end_time %></p>
-                    <p>Checked In? <%= booking.checked_in ? "✅" : "❌" %></p>
-                  </div>
-                  <div class="card-footer mx-2">
-                    <div class="row d-flex">
-                      <div class="col-xs-6 col-sm-6 col-lg-3">
-                        <strong class="green-footer"><h4>⭐️ favorite</h4></strong>
-                      </div>
-                      <div class="col-xs-6 col-sm-6 col-lg-3">
-                        <strong class="green-footer"><h4>capacity: <%= booking.facility.capacity %></h4></strong>
-                      </div>
-                      <div class="col-xs-6 col-sm-6 col-lg-3">
-                        <strong class="green-footer"><h4>Utility: 80%</h4></strong>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% end %>
+<div>
+  <div class="container move-down">
+    <h1 class="text-center mb-5">My Dashboard</h1>
+    <div class="card glass-card">
+      <div class="card-body">
+        <div class="row d-flex py-4">
+        <div class="col my-1">
+          <div class="card-title text-center">
+          <%= image_tag "unnamed.jpg", class: "avatar-larger"%>
+        </div>
+      </div>
+        <div class="col ">
+          <h2>Hello, Jane!</h2>
+          <br>
+          <div>
+            <h5>Membership: S</h5>
+            <h5>Region: Berlin</h5>
+            <h5>Member since: 30.07.2022</h5>
           </div>
         </div>
-      <% end %>
+        <div class="col">
+        <h3>
+          Your bookings
+          <br> at a glance:
+        </h3>
+          <br>
+          <h3 class="green-footer">
+            <%= @bookings.where(user_id: current_user.id).count%>
+          </h3>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
+  </div>
+  <div class="container">
+    <h1 class="text-center text-white m-4 p-3">Activity Journal</h1>
+    <div class="row">
+      <div class="col-12 cards-frame">
+            <% @bookings.where(user_id: current_user.id).each do |booking| %>
+
+              <div class="booking-card glass-card">
+            <%= link_to facility_path(booking.facility), class: "text-decoration-none text-white"  do %>
+                  <div class="bg-booking rounded" style="background-image: url('<%= booking.facility.picture %>')">
+                  </div>
+                    <div class="card-content glass-card p-2 my-3">
+                      <h3><%= booking.facility.name %></h3>
+                      <p>Starttime: <%= booking.start_time %></p>
+                      <p>Endtime: <%= booking.end_time %></p>
+                      <p>Checked In? <%= booking.checked_in ? "✅" : "❌" %></p>
+                      <div class="d-flex justify-content-end p-2">
+                        <%= link_to(edit_booking_path(booking), class: "text-white" ) do %>
+                          <i class="fa-solid fa-pen p-2"></i>
+                        <% end %>
+                        <%= link_to(booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-white" ) do %>
+                          <i class="fa-solid fa-trash-can p-2"></i>
+                        <% end %>
+                      </div>
+                    </div>
+              </div>
+             <% end  %>
+
+            <% end  %>
+      </div>
+    </div>
+  </div>
 </div>

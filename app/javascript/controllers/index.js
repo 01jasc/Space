@@ -7,6 +7,7 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+
 import selectedController from "./selected_controller"
 application.register("selected", selectedController)
 
@@ -24,3 +25,13 @@ const toggleActiveOnClick = (sport) => {
 };
 
 sports.forEach(toggleActiveOnClick);
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)
+
+import InsertInListController from "./insert_in_list_controller"
+application.register("insert-in-list", InsertInListController)
+
+import AnimatedNumber from 'stimulus-animated-number'
+
+application.register('animated-number', AnimatedNumber)

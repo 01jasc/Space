@@ -18,3 +18,25 @@ body {
 #booking-form label {
   font-family: "Audiowide";
 }
+
+.input-date {
+  color-scheme: dark;
+}
+
+
+#rating-form form {
+  width: 500px;
+}
+
+#rating-info {
+  font-family: Audiowide;
+}
+
+#rating-form label {
+  font-family: "Audiowide";
+}
+
+.item-input:focus {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+}
