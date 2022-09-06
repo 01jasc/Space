@@ -34,8 +34,15 @@
     </div>
   </div>
 
-  <div id="booking-form" class="row justify-content-center py-5 booking-form">
+<div id="booking-form" class="row justify-content-center py-5 booking-form">
       <% if current_user %>
+      <div class="col-md-4">
+        <div class="container-bubble">
+        <div class="gradient-bubble first"></div>
+        <div class="gradient-bubble second"></div>
+      </div>
+      </div>
+    <div class="col-md-4">
         <h3 class="text-center pb-2">Book a timeslot</h3>
           <%= simple_form_for [@facility, @booking] do |f| %>
             <%= f.input :start_time, as: :date, html5: true, input_html: { class: "glass-card input-date" } %>
@@ -44,6 +51,11 @@
               <%= f.submit "Book Offer", class: "glass-button" %>
             </div>
           <% end %>
+      </div>
+      <div class="col-md-4">
+        <div class="container-bubble">
+        <div class="gradient-bubble third"></div>
+      </div>
       <% else %>
         <%= link_to "Go to Login", new_user_session_path  %>
       <% end %>
@@ -74,7 +86,6 @@
   <% if @reviews.blank? %>
     <p class="text-center">Be the first to leave a Review for <span style="color: #76FF03"><%= @facility.name %></span></p>
   <% else %>
-    <h3 class="text-center mb-5">Reviews for <%= @facility.name %></h3>
     <div data-insert-in-list-target="items" data-insert-in-list-position-value="afterbegin">
       <% @reviews.each do |review| %>
         <div class="glass-card py-3 px-5 mb-3">
