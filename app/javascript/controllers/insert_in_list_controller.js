@@ -6,14 +6,10 @@ export default class extends Controller {
   static values = { position: String }
 
   connect() {
-    console.log("hello from inser list controller")
-    console.log(this.element)
-    console.log(this.itemsTarget)
-    console.log(this.formTarget)
+    console.log("hello insert controller")
   }
   send(event) {
     event.preventDefault()
-    console.log(this.formTarget.action)
     fetch(this.formTarget.action, {
       method: "POST",
       headers: { "Accept": "application/json" },
@@ -22,7 +18,7 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         if (data.inserted_item) {
-          this.itemsTarget.insertAdjacentHTML("beforebegin", data.inserted_item)
+          this.itemsTarget.insertAdjacentHTML("afterbegin", data.inserted_item)
         }
         this.formTarget.outerHTML = data.form
       })

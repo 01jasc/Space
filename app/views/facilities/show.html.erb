@@ -54,7 +54,7 @@
     </div>
   </div>
 
-<div data-controller="insert-in-list" data-insert-in-list-position-value="afterbegin">
+<div data-controller="insert-in-list">
   <div id="rating-form" class="row justify-content-center py-5">
     <h3 class="text-center mb-5">Leave a Review for <span style="color: #76FF03"><%= @facility.name %></span></h3>
     <%= simple_form_for([@facility, @review], data: {insert_in_list_target: "form", action: "submit->insert-in-list#send"}) do |f| %>
@@ -69,10 +69,10 @@
   <% if @reviews.blank? %>
     <p class="text-center">Be the first to leave a Review for <span style="color: #76FF03"><%= @facility.name %></span></p>
   <% else %>
-    <div>
-      <h3 class="text-center mb-5">Reviews for <%= @facility.name %></h3>
+    <h3 class="text-center mb-5">Reviews for <%= @facility.name %></h3>
+    <div data-insert-in-list-target="items" data-insert-in-list-position-value="afterbegin">
       <% @reviews.each do |review| %>
-        <div class="glass-card py-3 px-5 mb-3" data-insert-in-list-target="items">
+        <div class="glass-card py-3 px-5 mb-3">
           <div>
             <p><%= "⭐️" * review.rating %> <%= review.user.first_name %> <%= review.user.last_name %> on <%= review.created_at.strftime("%B %d, %Y") %> wrote:</p>
           </div>

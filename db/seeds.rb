@@ -172,7 +172,7 @@ end
 puts "Destroying all Reviews..."
 Review.destroy_all
 puts "Creating Reviews..."
-20.times do
+100.times do
   Review.create!(
     content: Faker::TvShows::Suits.quote,
     rating: rand(1..5),
