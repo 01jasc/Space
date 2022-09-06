@@ -22,16 +22,11 @@
                 <div class="card-text text-white">
                   <p><%= facility.description %></p>
                     <div class="card-footer mx-2">
-                      <div class="row d-flex flex-end">
-                        <div class="col-xs-6 col-sm-6 col-lg-3">
-                          <strong class="green-footer Audiowide"><h4>⭐️ favorite</h4></strong>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-lg-3">
-                          <strong class="green-footer Audiowide"><h4>capacity: <%= facility.capacity %></h4></strong>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-lg-3">
-                          <strong class="green-footer Audiowide"><h4>occupancy: 80%</h4></strong>
-                        </div>
+                      <div class="row d-flex text-center ">
+                          <h4 class= "mb-10 pb-3 text-center", style="color: #76FF03" style="color: #76FF03;">occupancy rate:
+                              <%= rand(20..80) %>
+                            <span style="color: #76FF03;">%</span>
+                          </h4>
                       </div>
                  </div>
               </div>
