@@ -24,9 +24,14 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @booking = Booking.find(params[:id])
   end
 
   def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+
+    redirect_to bookings_path(@booking)
   end
 
   def destroy
@@ -34,7 +39,7 @@ class BookingsController < ApplicationController
     return unless @booking.user == current_user
 
     @booking.destroy
-    redirect_to dashboard_path, status: :see_other
+    redirect_to bookings_path, status: :see_other
   end
 
   private

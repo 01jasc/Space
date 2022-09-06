@@ -37,3 +37,39 @@
   top: -20px;
   width: 40px;
 }
+
+
+.cards-frame{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.booking-card{
+  width: 330px;
+  background-color: white;
+  border-radius: 1px;
+  margin-right: 20px;
+  margin-bottom: 425px;
+}
+
+.bg-booking{
+  background-image: url(https://images.unsplash.com/photo-1660756238206-74d630bc00ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Ym91bGRlcmluZy1mYWNpdGlseXx8fHx8fDE2NjIxMTIzOTU&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-content{
+  padding-left: 4px;
+}
+
+.h-400 {
+  max-height: 270px;
+}
+ .card-new {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+ }

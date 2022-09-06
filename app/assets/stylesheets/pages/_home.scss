@@ -75,15 +75,59 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  // padding: 16px 0px;
   gap: 80px;
   height: 10vh;
-
-  // position: absolute;
-  // width: 1440px;
-  // height: 72px;
-  // left: 0px;
-  // top: 1156px;
   font-size: 24px;
   background: #76FF03;
+}
+
+.section-sports {
+  height: 130vh;
+  width: 100vw;
+  // padding-left: 10vw;
+  // padding-right: 10vw;
+}
+
+.sports-3-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+
+  // row justify-content-around
+}
+
+.sportcard {
+  display: grid;
+  grid-gap: 8px;
+  background-size: cover;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  height: 35vh;
+  width: 28vw;
   }
+
+.sports-header {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-top: 10vh;
+}
+
+.sports-header-text {
+  font-family: Audiowide;
+  font-weight: Regular;
+  font-size: 28px;
+  opacity: 1;
+}
+
+.sports-cards-text {
+  color: white;
+  opacity: 1;
+  font-size: 28px;
+}

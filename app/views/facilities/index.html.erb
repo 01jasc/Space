@@ -2,34 +2,38 @@
 <div id="video">
   <%= video_tag "NEW_CLIP.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "my_video" %>
 </div>
-<div class="container flex items-center justify-center min-h-screen">
+<div class="container flex items-center justify-center min-h-screen move-down">
   <h1 class="text-center text-white">Facilities</h1>
     <div id="facilities">
       <% @facilities.each do |facility| %>
         <div class="row d-flex py-4">
           <div class="col my-1">
             <%= link_to facility_path(facility), class: "text-decoration-none text-black"  do %>
-              <div class="row d-flex">
-                <div class="card glass-card shadow-xl rounded-lg horizontal">
-                  <img class="card-img shadow-box " src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Card image cap" style="width: 350px">
-                      <div class="card-block">
-                    <div class="card-body">
-                          <div class="card-title py-2">
-                            <h1><%= facility.name %></h1>
-                          </div>
-                          <div class="card-text">
-                            <p><%= facility.description %></p>
-                          </div>
-                      </div>
-                    <div class="card-footer mx-2">
-                      <div class="row">
-                          <small class="text-muted"><p>⭐️ favorite</p></small>
-                          <small class="text-muted"><p>capacity: <%= facility.capacity %></p></small>
-                          <small class="text-muted"><p>Utility: 80%</p></small>
-                      </div>
-                    </div>
-                    </div>
+            <div class="card glass-card shadow-xl rounded-lg horizontal h-400 mt-5">
+              <% if facility.picture.present? %>
+                <%= image_tag facility.picture, class: "card-img shadow-box", style: "width: 350px; height: 100%; object-fit: cover;" %>
+              <% else %>
+                <img class="card-img-left shadow-box card-new mt-5" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Card image cap">
+              <% end %>
+              <div class="card-body">
+                <div class="card-title text-white py-2">
+                  <h1><%= facility.name %></h1>
                 </div>
+                <div class="card-text text-white">
+                  <p><%= facility.description %></p>
+                    <div class="card-footer mx-2">
+                      <div class="row d-flex flex-end">
+                        <div class="col-xs-6 col-sm-6 col-lg-3">
+                          <strong class="green-footer Audiowide"><h4>⭐️ favorite</h4></strong>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-lg-3">
+                          <strong class="green-footer Audiowide"><h4>capacity: <%= facility.capacity %></h4></strong>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-lg-3">
+                          <strong class="green-footer Audiowide"><h4>occupancy: 80%</h4></strong>
+                        </div>
+                      </div>
+                 </div>
               </div>
             <% end %>
           </div>
