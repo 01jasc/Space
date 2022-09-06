@@ -133,27 +133,26 @@ User.create!(
   last_name: "Reif"
 )
 
-
 puts "Creating more users..."
 20.times do
   User.create(
     email: Faker::Internet.email,
     password: "123456",
     first_name: Faker::Name.first_name,
-    last_name: Faker::Name.first_name
+    last_name: Faker::Name.last_name
   )
   puts "created #{User.last.first_name}"
 end
 
 puts "Creating bookings for Pam..."
 puts "...this takes a few seconds..."
-1000.times do
+1500.times do
   Booking.create(
     comment: Faker::TvShows::NewGirl.quote,
     start_time: Faker::Date.backward(days: 14),
     end_time: Faker::Date.backward(days: 14),
-    user_id: User.all.sample,
-    facility_id: rand(1..20),
+    user_id: User.all.sample.id,
+    facility_id: Facility.all.sample.id,
     checked_in: [true, true, true, false].sample
   )
 end
@@ -164,21 +163,21 @@ puts "Create bookings for Jan..."
     comment: Faker::TvShows::NewGirl.quote,
     start_time: Faker::Date.backward(days: 14),
     end_time: Faker::Date.backward(days: 14),
-    user_id: 1,
-    facility_id: rand(1..20),
-    checked_in: [true, false].sample
+    user_id: User.all.sample.id,
+    facility_id: Facility.all.sample.id,
+    checked_in: [true, true, true, false].sample
   )
 end
 
 puts "Destroying all Reviews..."
 Review.destroy_all
-puts "Creating Review..."
-20.times do
+puts "Creating Reviews..."
+100.times do
   Review.create!(
     content: Faker::TvShows::Suits.quote,
     rating: rand(1..5),
-    user_id: rand(1..100),
-    facility_id: rand(1..20)
+    user_id: User.all.sample.id,
+    facility_id: Facility.all.sample.id
   )
 end
 puts "Finished!"
