@@ -19,7 +19,7 @@ Category.create!(
 )
 puts "creating Boulder category"
 Category.create!(
-  title: "Boulder",
+  title: "Bouldering",
   explanation: "Boulder is the activity of using one's hands, feet, or any other part of the body to ascend a steep topographical object. It is done for locomotion, recreation and competition, and within trades that rely on ascension; such as emergency rescue and military operations. It is done indoors and out, on natural and man-made structures.
   Professional mountain guides or rock climbing guides, such as members of the IFMGA, have been known to be a historically significant element of developing the popularity of the sport in the natural environment, and remain so today.",
   icon: "<i class='fa-solid fa-mountain-sun'></i>",
@@ -68,7 +68,6 @@ Category.create!(
   capacity_type: "Courts",
   img: "badminton.png"
 )
-
 puts "creating Tennis category"
 Category.create!(
   title: "Tennis",
@@ -79,7 +78,7 @@ Category.create!(
 )
 puts "creating Kajaaking category"
 Category.create!(
-  title: "Kajaking",
+  title: "Kayaking",
   explanation: "A kayak is a low-to-the-water, canoe-like boat in which the paddler sits facing forward, legs in front, using a double-bladed paddle to pull front-to-back on one side and then the other in rotation. Most kayaks have closed decks, although sit-on-top and inflatable kayaks are growing in popularity as well.",
   icon: "<i class='fa-solid fa-table-tennis-paddle-ball'></i>",
   capacity_type: "Courts",

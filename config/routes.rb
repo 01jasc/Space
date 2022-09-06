@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
+  # resources :facilities, only: [:index] do
+  #   collection do
+  #     get :selected
+  #   end
+  # end
+
   resources :reviews, only: [:update, :destroy]
 
   resources :bookings, only: [:index]

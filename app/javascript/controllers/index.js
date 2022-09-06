@@ -10,17 +10,17 @@ application.register("hello", HelloController)
 import selectedController from "./selected_controller"
 application.register("selected", selectedController)
 
-// const sports = document.querySelectorAll('.clickable');
-// const selected = []
+const sports = document.querySelectorAll('.clickable');
+const selected = []
 
-// const toggleActiveClass = (event) => {
-//   event.currentTarget.classList.toggle('active');
-//   selected.push(event.currentTarget.innerText)
-// };
+const toggleActiveClass = (event) => {
+  event.currentTarget.classList.toggle('active');
+  selected.push(event.currentTarget.innerText)
+};
 
-// const toggleActiveOnClick = (sport) => {
-//   sport.addEventListener('click', toggleActiveClass);
-//   console.log(selected)
-// };
+const toggleActiveOnClick = (sport) => {
+  sport.addEventListener('click', toggleActiveClass);
+  console.log(selected)
+};
 
-// sports.forEach(toggleActiveOnClick);
+sports.forEach(toggleActiveOnClick);

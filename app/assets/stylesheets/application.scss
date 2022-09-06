@@ -10,11 +10,13 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-body {
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-}
+
+// body {
+//   height: 100vh;
+//   width: 100vw;
+//   margin: 0;
+//   padding: 0;
+// }
+
 @import "index/index";
 @import "pages/show";
