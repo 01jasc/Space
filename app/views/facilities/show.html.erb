@@ -20,10 +20,11 @@
       <p>Rating: <%= "⭐️ " * (ratings_arr.sum / ratings_arr.size) %>(<%= pluralize ratings_arr.size, "rating" %>)</p>
     <% end %>
   </div>
-  <div class="container">
-  </div>
   <div id="graph" class="py-5">
-    <h3 class="text-center mb-3">Current utilization rate is <span style="color: #76FF03;"><%= rand(20..80) %>%</span></h3>
+    <h3 class="text-center mb-5">Current utilization rate is <span   data-controller="animated-number"
+  data-animated-number-start-value="0"
+  data-animated-number-end-value=<%= rand(20..80) %>
+  data-animated-number-duration-value="3000" style="color: #76FF03" style="color: #76FF03;">0</span><span style="color: #76FF03;">%</span></h3>
     <div class="d-flex justify-content-center">
       <%= column_chart Booking.where(facility_id: params[:id]).group_by_day_of_week(:end_time, time_zone: "Berlin", format: "%a").count, colors: ["#76FF03"], library: {borderRadius: 8 }%>
     </div>
