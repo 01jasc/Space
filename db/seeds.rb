@@ -146,7 +146,7 @@ end
 
 puts "Creating bookings for Pam..."
 puts "...this takes a few seconds..."
-1000.times do
+1500.times do
   Booking.create(
     comment: Faker::TvShows::NewGirl.quote,
     start_time: Faker::Date.backward(days: 14),
@@ -171,7 +171,7 @@ end
 
 puts "Destroying all Reviews..."
 Review.destroy_all
-puts "Creating Review..."
+puts "Creating Reviews..."
 20.times do
   Review.create!(
     content: Faker::TvShows::Suits.quote,
