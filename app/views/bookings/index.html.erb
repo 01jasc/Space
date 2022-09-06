@@ -42,7 +42,7 @@
       <div class="col-12 cards-frame">
             <% @bookings.each do |booking| %>
 
-              <div class="booking-card glass-button">
+              <div class="booking-card glass-card">
             <%= link_to facility_path(booking.facility), class: "text-decoration-none text-white"  do %>
                   <div class="bg-booking rounded" style="background-image: url('<%= booking.facility.picture %>')">
                   </div>
