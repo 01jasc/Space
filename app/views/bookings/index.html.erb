@@ -42,10 +42,11 @@
       <div class="col-12 cards-frame">
             <% @bookings.each do |booking| %>
 
-              <div class="booking-card glass-card">
-                  <div class="bg-booking roundede" style="background-image: url('<%= booking.facility.picture %>')">
+              <div class="booking-card glass-button">
+            <%= link_to facility_path(booking.facility), class: "text-decoration-none text-white"  do %>
+                  <div class="bg-booking rounded" style="background-image: url('<%= booking.facility.picture %>')">
                   </div>
-                    <div class="card-content glass-card p-2">
+                    <div class="card-content glass-card p-2 my-3">
                       <h3><%= booking.facility.name %></h3>
                       <p>Starttime: <%= booking.start_time %></p>
                       <p>Endtime: <%= booking.end_time %></p>
@@ -60,6 +61,7 @@
                       </div>
                     </div>
               </div>
+             <% end  %>
 
             <% end  %>
       </div>
