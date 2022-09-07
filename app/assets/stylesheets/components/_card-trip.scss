@@ -46,20 +46,29 @@
 }
 
 .booking-card{
-  width: 330px;
-  background-color: white;
-  border-radius: 1px;
-  margin-right: 20px;
-  margin-bottom: 425px;
+  width: 370px;
+    /* background-color: white; */
+    /* border-radius: 1px; */
+    /* margin-right: 20px; */
+    height: 72vh;
+    margin-bottom: 212px;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(60px);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .bg-booking{
   background-image: url(https://images.unsplash.com/photo-1660756238206-74d630bc00ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Ym91bGRlcmluZy1mYWNpdGlseXx8fHx8fDE2NjIxMTIzOTU&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080);
   width: 100%;
-  height: 100%;
+  height: 41vh;
   background-size: cover;
   background-position: center;
-  border-radius: 5px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
 
 .card-content{
@@ -77,5 +86,5 @@
  }
 
  .h-500 {
-  max-height: 280px;
+  max-height: 320px;
 }

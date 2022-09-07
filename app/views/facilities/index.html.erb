@@ -4,7 +4,6 @@
 </div>
 <div class="container">
   <div class="row d-flex justify-content-center py-4">
-    <div>
     <div class="container" data-controller="displaymap">
       <div class="col d-flex justify-content-center" style="margin-top: 50px">
         <button id="map-btn" data-displaymap-target="map" class="px-5 btn btn-12" style="color: white;" data-displaymap-action="click->displaymap#show" data-remote="true">
@@ -12,44 +11,57 @@
         </button>
       </div>
     </div>
-
-    </div>
   </div>
+
   <div>
     <div data-controller="map" data-map-target="show" data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" >
     </div>
+
 <div class="container flex items-center justify-center min-h-screen move-down">
   <h1 class="text-center text-white">Facilities</h1>
-    <div id="facilities">
-      <% @facilities.each do |facility| %>
-        <div class="row d-flex py-4">
-          <div class="col my-1">
-            <%= link_to facility_path(facility), class: "text-decoration-none text-black"  do %>
-            <div class="card glass-card shadow-xl rounded-lg horizontal h-500 mt-5">
-              <% if facility.picture.present? %>
-                <%= image_tag facility.picture, class: "card-img shadow-box", style: "width: 350px; height: 100%; object-fit: cover;" %>
-              <% else %>
-                <img class="card-img-left shadow-box card-new mt-5" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Card image cap">
-              <% end %>
-              <div class="card-body">
-                <div class="card-title text-white py-2">
-                  <h1><%= facility.name %></h1>
-                </div>
-                <div class="card-text text-white">
-                  <p><%= facility.description %></p>
-                    <div class="card-footer mx-2">
-                      <div class="row d-flex text-center">
-                          <h4 class= "mb-10 pb-3 text-center", style="color: #76FF03" style="color: #76FF03;">occupancy rate:
-                              <%= rand(20..80) %>
-                            <span style="color: #76FF03;">%</span>
-                          </h4>
-                      </div>
-                    </div>
-                </div>
+  <div id="facilities">
+    <% @facilities.each do |facility| %>
+      <div class="row d-flex py-4">
+        <div class="col my-1">
+          <%= link_to facility_path(facility), class: "text-decoration-none text-black"  do %>
+          <div class="card glass-card shadow-xl rounded-lg horizontal h-500 mt-5">
+            <% if facility.picture.present? %>
+              <%= image_tag facility.picture, class: "card-img shadow-box", style: "width: 350px; height: 100%; object-fit: cover;" %>
+            <% else %>
+              <img class="card-img-left shadow-box card-new mt-5" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Card image cap">
             <% end %>
-          </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center card-title text-white py-2 me-5">
+                <h1 class="text-white"><%= facility.name %></h1>
+          <% end %>
+              </div>
+              <div class="card-text text-white">
+                <p><%= facility.description.truncate(500) %></p>
+              </div>
+              <div class="d-flex justify-content-between align-items-center py-3 audiowide">
+                <div>
+                  <span class= "text-center">Occupancy rate: </span>
+                  <span style="color: #76FF03"> <%= rand(20..80) %> % </span>
+                </div>
+                <div>
+                  <span>Category: <%= Category.where(id: facility.category_id)[0][:title]  %> <span style="color: #76FF03";><%= sanitize Category.where(id: facility.category_id)[0][:icon] %></span>
+                </div>
+                <div>
+                  <% if Review.where(facility_id: facility).empty? %>
+                    <span>Rating: No Rating yet</span>
+                  <% else %>
+                    <% ratings = Review.where(facility_id: facility)  %>
+                    <% ratings_arr = [] %>
+                    <% ratings.each do |rating| %>
+                      <% ratings_arr.push(rating.rating) %>
+                    <% end %>
+                  <span class="audiowide">Rating: <%= "⭐️ " * (ratings_arr.sum / ratings_arr.size) %>(<%= pluralize ratings_arr.size, "rating" %>)</span>
+                  <% end %>
+                </div>
+              </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+  </div>
 </div>
