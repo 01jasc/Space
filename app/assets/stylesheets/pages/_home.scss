@@ -93,6 +93,7 @@ body {
   display: flex;
   justify-content: center;
 }
+
 .search-facilities-btn {
   display: flex;
   justify-content: center;
@@ -116,8 +117,8 @@ body {
   flex-direction: column;
   background-repeat: no-repeat;
   background-position: center;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+  // align-items: center;
   vertical-align: middle;
   height: 35vh;
   width: 28vw;
@@ -143,12 +144,41 @@ body {
   font-size: 28px;
   font-family: Audiowide;
   font-weight: Regular;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.top-right {
+  display: flex;
+  height: 0;
+  align-items: flex-start;
+  justify-content: end;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-left: 0;
+  padding-bottom: 0;
+  border: 0;
+}
+
+.center {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.fa-solid {
+  display: flex;
+  text-align: center;
+  padding-top: 0;
+  font-size: 25px;
+  opacity: 0;
 }
 
 .clickable.active {
   color: inherit;
   border-color: inherit;
-
+  img: "fitness.png"
 }
 
 .clickable.active p {
