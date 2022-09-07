@@ -27,9 +27,15 @@
           <br> at a glance:
         </h3>
           <br>
-          <h3 class="green-footer">
-            <%= @bookings.where(user_id: current_user.id).count%>
-          </h3>
+            <h3 class="text-center mb-5">
+              <span data-controller="animated-number"
+              data-animated-number-start-value="0"
+              data-animated-number-end-value=<%= @bookings.where(user_id: current_user.id).count%>
+              data-animated-number-duration-value="2000" style="color: #76FF03" style="color: #76FF03;"
+              >0</span>
+            </h3>
+          <%# <h3 class="green-footer"> %>
+          <%# </h3> %>
           </div>
         </div>
       </div>
