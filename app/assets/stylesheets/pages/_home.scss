@@ -89,6 +89,18 @@ body {
   width: 100vw;
 }
 
+.contains-search-btn {
+  display: flex;
+  justify-content: center;
+}
+.search-facilities-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
 .sports-3-cards {
   display: flex;
   flex-direction: row;
@@ -129,12 +141,14 @@ body {
   color: white;
   opacity: 1;
   font-size: 28px;
+  font-family: Audiowide;
+  font-weight: Regular;
 }
 
 .clickable.active {
   color: inherit;
   border-color: inherit;
-  
+
 }
 
 .clickable.active p {
