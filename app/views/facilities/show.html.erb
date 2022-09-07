@@ -9,7 +9,7 @@
   <div id="sub-info" class="d-flex justify-content-between">
     <p>Category: <%= Category.where(id: @facility.category_id)[0][:title]  %> <span style="color: #76FF03";><%= sanitize Category.where(id: @facility.category_id)[0][:icon] %></span></p>
     <p>Max. Capacity: <%= @facility.capacity %> <%= @facility.category.capacity_type %></p>
-    <% if Review.where(facility_id: params[:id]) == [] %>
+    <% if Review.where(facility_id: params[:id]).empty? %>
       <p>Rating: No Rating yet</p>
     <% else %>
       <% ratings = Review.where(facility_id: params[:id])  %>
