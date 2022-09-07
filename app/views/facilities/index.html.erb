@@ -34,26 +34,27 @@
               <% end %>
               <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center card-title text-white py-2 me-5">
-                  <h1><%= facility.name %></h1>
-                  <span><% if Review.where(facility_id: facility).empty? %>
-                      <p class="audiowide pt-2">Rating: No Rating yet</p>
+                  <h1 class="text-white"><%= facility.name %></h1>
+                    <% end %>
+                  </span>
+                </div>
+                <div class="card-text text-white">
+                  <p><%= facility.description %></p>
+                      <div class="d-flex justify-content-between align-items-center pt-3 audiowide">
+                      <div>
+                          <span class= "text-center">Occupancy rate: </span>
+                          <span style="color: #76FF03"> <%= rand(20..80) %> % </span>
+                      </div>
+                          <span>Category: <%= Category.where(id: facility.category_id)[0][:title]  %> <span style="color: #76FF03";><%= sanitize Category.where(id: facility.category_id)[0][:icon] %></span></span>
+                          <span><% if Review.where(facility_id: facility).empty? %>
+                      <span>Rating: No Rating yet</span>
                     <% else %>
                       <% ratings = Review.where(facility_id: facility)  %>
                       <% ratings_arr = [] %>
                       <% ratings.each do |rating| %>
                       <% ratings_arr.push(rating.rating) %>
                     <% end %>
-                    <p class="audiowide pt-2">Rating: <%= "⭐️ " * (ratings_arr.sum / ratings_arr.size) %>(<%= pluralize ratings_arr.size, "rating" %>)</p>
-                    <% end %>
-                  </span>
-                </div>
-                <div class="card-text text-white">
-                  <p><%= facility.description %></p>
-                      <div class="d-flex justify-content-between align-items-center">
-                          <span class= "mb-10 pb-3 text-center", style="color: #76FF03" style="color: #76FF03;">occupancy rate:
-                              <%= rand(20..80) %> %
-                          </span>
-                          <span>Category: <%= Category.where(id: facility.category_id)[0][:title]  %> <span style="color: #76FF03";><%= sanitize Category.where(id: facility.category_id)[0][:icon] %></span></span>
+                    <span class="audiowide">Rating: <%= "⭐️ " * (ratings_arr.sum / ratings_arr.size) %>(<%= pluralize ratings_arr.size, "rating" %>)</span>
                     </div>
                 </div>
             <% end %>
