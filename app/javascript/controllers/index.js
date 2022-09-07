@@ -7,6 +7,35 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+
+import selectedController from "./selected_controller"
+application.register("selected", selectedController)
+
+const sports = document.querySelectorAll('.clickable');
+const selected = []
+
+const toggleActiveClass = (event) => {
+    event.currentTarget.classList.toggle('active');
+    selected.push(event.currentTarget.innerText)
+};
+
+const toggleActiveOnClick = (sport) => {
+    sport.addEventListener('click', toggleActiveClass);
+    console.log(selected)
+};
+
+sports.forEach(toggleActiveOnClick);
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)
+
+import InsertInListController from "./insert_in_list_controller"
+application.register("insert-in-list", InsertInListController)
+
+import AnimatedNumber from 'stimulus-animated-number'
+
+application.register('animated-number', AnimatedNumber)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
 
@@ -17,10 +46,10 @@ const mapstyle = document.querySelector(".mapboxgl-popup-content")
 const mapbutton = document.querySelector("#map-btn")
 
 
-if(mapbutton){
+if (mapbutton) {
     mapbutton.addEventListener("click", () => {
-      setTimeout(() => {
-          console.log(mapstyle)
-      }, 2000);
-})
+        setTimeout(() => {
+            console.log(mapstyle)
+        }, 2000);
+    })
 }

@@ -19,7 +19,7 @@ Category.create!(
 )
 puts "creating Boulder category"
 Category.create!(
-  title: "Boulder",
+  title: "Bouldering",
   explanation: "Boulder is the activity of using one's hands, feet, or any other part of the body to ascend a steep topographical object. It is done for locomotion, recreation and competition, and within trades that rely on ascension; such as emergency rescue and military operations. It is done indoors and out, on natural and man-made structures.
   Professional mountain guides or rock climbing guides, such as members of the IFMGA, have been known to be a historically significant element of developing the popularity of the sport in the natural environment, and remain so today.",
   icon: "<i class='fa-solid fa-mountain-sun'></i>",
@@ -68,7 +68,6 @@ Category.create!(
   capacity_type: "Courts",
   img: "badminton.png"
 )
-
 puts "creating Tennis category"
 Category.create!(
   title: "Tennis",
@@ -79,7 +78,7 @@ Category.create!(
 )
 puts "creating Kajaaking category"
 Category.create!(
-  title: "Kajaking",
+  title: "Kayaking",
   explanation: "A kayak is a low-to-the-water, canoe-like boat in which the paddler sits facing forward, legs in front, using a double-bladed paddle to pull front-to-back on one side and then the other in rotation. Most kayaks have closed decks, although sit-on-top and inflatable kayaks are growing in popularity as well.",
   icon: "<i class='fa-solid fa-table-tennis-paddle-ball'></i>",
   capacity_type: "Courts",
@@ -139,21 +138,21 @@ puts "Creating more users..."
     email: Faker::Internet.email,
     password: "123456",
     first_name: Faker::Name.first_name,
-    last_name: Faker::Name.first_name
+    last_name: Faker::Name.last_name
   )
   puts "created #{User.last.first_name}"
 end
 
 puts "Creating bookings for Pam..."
 puts "...this takes a few seconds..."
-1000.times do
+1500.times do
   Booking.create(
     comment: Faker::TvShows::NewGirl.quote,
     start_time: Faker::Date.backward(days: 14),
     end_time: Faker::Date.backward(days: 14),
-    user_id: User.all.sample,
-    facility_id: rand(1..20),
-    checked_in: [true, false].sample
+    user_id: User.all.sample.id,
+    facility_id: Facility.all.sample.id,
+    checked_in: [true, true, true, false].sample
   )
 end
 
@@ -163,9 +162,21 @@ puts "Create bookings for Jan..."
     comment: Faker::TvShows::NewGirl.quote,
     start_time: Faker::Date.backward(days: 14),
     end_time: Faker::Date.backward(days: 14),
-    user_id: 1,
-    facility_id: rand(1..20),
-    checked_in: [true, false].sample
+    user_id: User.all.sample.id,
+    facility_id: Facility.all.sample.id,
+    checked_in: [true, true, true, false].sample
+  )
+end
+
+puts "Destroying all Reviews..."
+Review.destroy_all
+puts "Creating Reviews..."
+100.times do
+  Review.create!(
+    content: Faker::TvShows::Suits.quote,
+    rating: rand(1..5),
+    user_id: User.all.sample.id,
+    facility_id: Facility.all.sample.id
   )
 end
 puts "Finished!"

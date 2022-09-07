@@ -1,25 +1,24 @@
 class ReviewsController < ApplicationController
-  before_action :set_offer, only: %i[create]
-
+  before_action :set_facility, :set_user, only: %i[new create]
   def create
     @review = Review.new(review_params)
     @review.facility = @facility
     @review.user = current_user
-    if @review.save
-      redirect_to facilities_path
-    else
-      render 'facilities/show', status: :unprocessable_entity
+
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to facility_path(@facility) }
+        format.json # Follow the classic Rails flow and look for a create.json view
+      else
+        format.html { render "facilities/show", status: :unprocessable_entity }
+        format.json
+      end
     end
   end
 
   def update
     @review = Review.find(params[:review_id])
     @review.update(review_params)
-
-    # respond_to do |format|
-    #   format.html { redirect_to facility_path }
-    #   format.text { render partial: "movies/movie_infos", locals: {movie: @movie}, formats: [:html] }
-    # end
   end
 
   def destroy
@@ -36,7 +35,11 @@ class ReviewsController < ApplicationController
     @facility = Facility.find(params[:facility_id])
   end
 
+  def set_user
+    @user = current_user
+  end
+
   def review_params
-    params.require(:review).permit(:comment)
+    params.require(:review).permit(:content, :rating)
   end
 end

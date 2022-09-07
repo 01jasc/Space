@@ -4,45 +4,112 @@
     <p><i class="fa-solid fa-location-dot" style="color: #76FF03";></i> Address: <%= @facility.address %></p>
   </div>
 </div>
+
 <div class="container">
   <div id="sub-info" class="d-flex justify-content-between">
     <p>Category: <%= Category.where(id: @facility.category_id)[0][:title]  %> <span style="color: #76FF03";><%= sanitize Category.where(id: @facility.category_id)[0][:icon] %></span></p>
-    <p>Max. Capacity: <%= @facility.capacity %></p>
-    <p>Rating: 4/5 ⭐️</p>
-  </div>
-  <div class="container">
-    <p>Description: <%= @facility.description%></p>
+    <p>Max. Capacity: <%= @facility.capacity %> <%= @facility.category.capacity_type %></p>
+    <% if Review.where(facility_id: params[:id]) == [] %>
+      <p>Rating: No Rating yet</p>
+    <% else %>
+      <% ratings = Review.where(facility_id: params[:id])  %>
+      <% ratings_arr = [] %>
+      <% ratings.each do |rating| %>
+        <% ratings_arr.push(rating.rating) %>
+      <% end %>
+      <p>Rating: <%= "⭐️ " * (ratings_arr.sum / ratings_arr.size) %>(<%= pluralize ratings_arr.size, "rating" %>)</p>
+    <% end %>
   </div>
   <div id="graph" class="py-5">
-
-    <h3 class="text-center mb-3">Current Utility rate is <span style="color: #76FF03;"><%= rand(20..80) %>%</span></h3>
+    <h3 class="text-center mb-5">Current utilization rate is
+    <span data-controller="animated-number"
+    data-animated-number-start-value="0"
+    data-animated-number-end-value=<%= rand(20..80) %>
+    data-animated-number-duration-value="2000" style="color: #76FF03" style="color: #76FF03;"
+    >0</span>
+    <span style="color: #76FF03;">%</span>
+    </h3>
     <div class="d-flex justify-content-center">
       <%= column_chart Booking.where(facility_id: params[:id]).group_by_day_of_week(:end_time, time_zone: "Berlin", format: "%a").count, colors: ["#76FF03"], library: {borderRadius: 8 }%>
     </div>
   </div>
+
+<div id="booking-form" class="row justify-content-center py-5 booking-form">
+      <% if current_user %>
+      <div class="col-md-4">
+        <div class="container-bubble">
+        <div class="gradient-bubble first"></div>
+        <div class="gradient-bubble second"></div>
+      </div>
+      </div>
+    <div class="col-md-4">
+        <h3 class="text-center pb-2">Book a timeslot</h3>
+          <%= simple_form_for [@facility, @booking] do |f| %>
+            <%= f.input :start_time, as: :date, html5: true, input_html: { class: "glass-card input-date" } %>
+            <%= f.input :end_time, as: :date, html5: true, input_html: { class: "glass-card input-date" } %>
+            <div class="text-center py-2">
+              <%= f.submit "Book Offer", class: "glass-button" %>
+            </div>
+          <% end %>
+      </div>
+      <div class="col-md-4">
+        <div class="container-bubble">
+        <div class="gradient-bubble third"></div>
+      </div>
+      <% else %>
+        <%= link_to "Go to Login", new_user_session_path  %>
+      <% end %>
+  </div>
+
   <div class="row py-5">
     <div class="col">
       <%= image_tag Category.where(id: @facility.category_id)[0][:img] %>
     </div>
     <div class="col">
-      <h3><%= Category.where(id: @facility.category_id)[0][:title]  %></h3>
-      <p><%= Category.where(id: @facility.category_id)[0][:explanation] %></p>
+      <h3 style="color: #76FF03"><%= @facility. name %></h3>
+      <p> <%= @facility.description %> <%= Category.where(id: @facility.category_id)[0][:explanation] %></p>
     </div>
   </div>
 
-  <div id="booking-form" class="row justify-content-center py-5">
-      <% if current_user %>
-        <h3 class="text-center pb-2">Book a timeslot</h3>
-          <%= simple_form_for [@facility, @booking] do |f| %>
-            <%= f.input :start_time, as: :date, html5: true, input_html: { class: "glass-card" } %>
-            <%= f.input :end_time, as: :date, html5: true, input_html: { class: "glass-card" } %>
-            <div class="text-center py-2">
-              <%= f.submit "Book Offer", class: "glass-button" %>
-            </div>
-          <% end %>
-      <% else %>
-        <%= link_to "Go to Login", new_user_session_path  %>
-      <% end %>
-
+<div data-controller="insert-in-list">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="container-bubble"></div>
+      <div class="gradient-bubble sixth"></div>
+    </div>
+    <div class="col-md-4">
+      <div id="rating-form" class="row justify-content-center py-5">
+        <h3 class="text-center mb-5">Leave a Review for <span style="color: #76FF03"><%= @facility.name %></span></h3>
+        <%= simple_form_for([@facility, @review], data: {insert_in_list_target: "form", action: "submit->insert-in-list#send"}) do |f| %>
+          <%= f.input :content, input_html: { class: "glass-card item-input"} %>
+          <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+          <div class="text-center py-3">
+            <%= f.submit "Send your review", class: "glass-button" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="container-bubble">
+      <div class="gradient-bubble fourth"></div>
+      <div class="gradient-bubble fifth"></div>
+    </div>
   </div>
+
+  <% if @reviews.blank? %>
+    <p class="text-center">Be the first to leave a Review for <span style="color: #76FF03"><%= @facility.name %></span></p>
+  <% else %>
+    <div data-insert-in-list-target="items" data-insert-in-list-position-value="afterbegin">
+      <% @reviews.each do |review| %>
+        <div class="glass-card py-3 px-5 mb-3">
+          <div>
+            <p><%= "⭐️" * review.rating %> <%= review.user.first_name %> <%= review.user.last_name %> on <%= review.created_at.strftime("%B %d, %Y") %> wrote:</p>
+          </div>
+          <div>
+            <p><%= review.content %></p>
+          </div>
+        </div>
+      <% end %>
+  <% end %>
+    </div>
 </div>

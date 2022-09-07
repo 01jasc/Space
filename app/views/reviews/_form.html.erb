@@ -1,0 +1,7 @@
+    <%= simple_form_for([facility, review], data: {insert_in_list_target: "form", action: "submit->insert-in-list#send"}) do |f| %>
+      <%= f.input :content, input_html: { class: "glass-card item-input"} %>
+      <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+      <div class="text-center">
+        <%= f.submit "Send your review", class: "glass-button" %>
+      </div>
+    <% end %>
