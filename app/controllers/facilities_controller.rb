@@ -1,7 +1,7 @@
 class FacilitiesController < ApplicationController
   def index
     if request.query_parameters.empty?
-      @facilities = Facility.all
+      @facilities = Facility.all.geocoded
     else
       @facilities = []
       if params["Gym"] == "true"
@@ -33,7 +33,7 @@ class FacilitiesController < ApplicationController
       end
     end
 
-    @markers = @facilities.geocoded.map do |facility|
+    @markers = @facilities.map do |facility|
       {
         lat: facility.latitude,
         lng: facility.longitude,
