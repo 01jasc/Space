@@ -6,3 +6,21 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import MapController from "./map_controller"
+application.register("map", MapController)
+
+import DisplayMapController from "./displaymap_controller"
+application.register("displaymap", DisplayMapController)
+
+const mapstyle = document.querySelector(".mapboxgl-popup-content")
+const mapbutton = document.querySelector("#map-btn")
+
+
+if(mapbutton){
+    mapbutton.addEventListener("click", () => {
+      setTimeout(() => {
+          console.log(mapstyle)
+      }, 2000);
+})
+}

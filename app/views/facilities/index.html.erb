@@ -2,6 +2,23 @@
 <div id="video">
   <%= video_tag "NEW_CLIP.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "my_video" %>
 </div>
+<div class="container">
+  <div class="row d-flex justify-content-center py-4">
+    <div>
+    <div class="container" data-controller="displaymap">
+      <div class="col d-flex justify-content-center" style="margin-top: 50px">
+        <button id="map-btn" data-displaymap-target="map" class="px-5 btn btn-12" style="color: white;" data-displaymap-action="click->displaymap#show" data-remote="true">
+          <i class="fa-solid fa-map-location-dot" style="color: white"><h2 id="map-color" class="py-1">Map</h2></i>
+        </button>
+      </div>
+    </div>
+    
+    </div>
+  </div>
+  <div>
+    <div data-controller="map" data-map-target="show" data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" class="shadow-sm my-5 border border-white rounded">
+    </div>
 <div class="container flex items-center justify-center min-h-screen move-down">
   <h1 class="text-center text-white">Facilities</h1>
     <div id="facilities">
