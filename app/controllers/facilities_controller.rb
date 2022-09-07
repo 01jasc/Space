@@ -32,32 +32,6 @@ class FacilitiesController < ApplicationController
         Category.find_by(title: "Kayaking").facilities.each { |el| @facilities << el }
       end
     end
-
-    # elsif params["Gym"] == "true"
-    #   @facilities = Category.find_by(title: "Gym").facilities
-    # elsif params["Gym"] == "true"
-    #   @facilities = Category.find_by(title: "Gym").facilities
-    # elsif params["Gym"] == "true"
-    #   @facilities = Category.find_by(title: "Gym").facilities
-    # elsif params["Gym"] == "true"
-    #   @facilities = Category.find_by(title: "Gym").facilities
-    # elsif params["Gym"] == "true"
-    #   @facilities = Category.find_by(title: "Gym").facilities
-    # elsif params["Gym"] == "true"
-    #   @facilities = Category.find_by(title: "Gym").facilities
-    # elsif params["Gym"] == "true"
-    #   @facilities = Category.find_by(title: "Gym").facilities
-    # else
-    #   @facilities = Facility.all
-    # end
-    # sleep 3
-    #nur facilities, die categories beinhalten in query (.where  facilities.category.title = Sport)
-    # wie muss url mit query ausseehen und wie wird params aufgegriffen
-    # if params[:query].present?
-    #   @facilities = Category.find_by(title: params[:query]).facilities
-    # else
-    #   @facilities = Facility.all
-    # end
   end
 
   def show

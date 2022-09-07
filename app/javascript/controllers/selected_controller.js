@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="selected"
 export default class extends Controller {
   static targets = []
 
@@ -21,28 +20,11 @@ export default class extends Controller {
   select(e) {
     this.trigger[`${e.currentTarget.innerText}`] =  !this.trigger[`${e.currentTarget.innerText}`]
     console.log(this.trigger)
-
-    // const arr = []
-    // if (arr.includes(e.currentTarget.innerText)) {
-    //   arr.filter(v => v !== Object.keys(this.trigger).find(key => this.trigger[key] === true));
-    // } else {
-    //   arr.push(Object.keys(this.trigger).find(key => this.trigger[key] === true));
-    // }
-
-    // console.log(arr)
-
-    // console.log(getKeyByValue(this.trigger, true));
   };
 
 
   sendOfParams() {
-    // categorys (nur mit true values) abgreifen und string generieren, der url + query beinhaltet
     console.log("params activated")
-    // fetch("/facilities")
-    // .then(response => response.text())
-    // .then((data) => {
-    // this.resultsTarget
-    // })
 
     let url = "/facilities?"
     let params = new URLSearchParams()
@@ -54,6 +36,5 @@ export default class extends Controller {
     }
 
     window.open(url + params.toString(), "_self")
-    // console.log(url + params.toString())
   }
 }
