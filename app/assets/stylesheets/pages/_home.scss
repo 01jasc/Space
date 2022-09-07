@@ -141,12 +141,13 @@ body {
 .sports-cards-text {
   color: white;
   opacity: 1;
-  font-size: 28px;
+  font-size: 23px;
   font-family: Audiowide;
   font-weight: Regular;
   border: 0px;
   margin: 0px;
   padding: 0px;
+  text-shadow: 1px 1px 1px black;
 }
 
 .top-right {
@@ -167,7 +168,8 @@ body {
   justify-content: center;
 }
 
-.fa-solid {
+.home-icon {
+  color: rgba(118,255,3,1);
   display: flex;
   text-align: center;
   padding-top: 0;
@@ -178,9 +180,29 @@ body {
 .clickable.active {
   color: inherit;
   border-color: inherit;
-  img: "fitness.png"
+  .home-icon {
+    opacity: 1;
+    text-shadow: 1px 1px 1px black;
+  }
+  .sports-cards-text {
+    color: rgba(118,255,3,1);
+    font-size: 28px;
+    text-shadow: 1px 1px 1px black;
+  }
 }
 
-.clickable.active p {
-  color: #52ACF4;
+.sportcard {
+  &:hover {
+    color: inherit;
+    border-color: inherit;
+    .home-icon {
+      opacity: 1;
+      text-shadow: 1px 1px 1px black;
+    }
+    .sports-cards-text {
+      color: rgba(118,255,3,1);
+      font-size: 28px;
+      text-shadow: 1px 1px 1px black;
+    }
+  }
 }
