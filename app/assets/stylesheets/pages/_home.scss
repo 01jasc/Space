@@ -89,6 +89,19 @@ body {
   width: 100vw;
 }
 
+.contains-search-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.search-facilities-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
 .sports-3-cards {
   display: flex;
   flex-direction: row;
@@ -104,8 +117,8 @@ body {
   flex-direction: column;
   background-repeat: no-repeat;
   background-position: center;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+  // align-items: center;
   vertical-align: middle;
   height: 35vh;
   width: 28vw;
@@ -128,15 +141,68 @@ body {
 .sports-cards-text {
   color: white;
   opacity: 1;
-  font-size: 28px;
+  font-size: 23px;
+  font-family: Audiowide;
+  font-weight: Regular;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  text-shadow: 1px 1px 1px black;
+}
+
+.top-right {
+  display: flex;
+  height: 0;
+  align-items: flex-start;
+  justify-content: end;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-left: 0;
+  padding-bottom: 0;
+  border: 0;
+}
+
+.center {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.home-icon {
+  color: rgba(118,255,3,1);
+  display: flex;
+  text-align: center;
+  padding-top: 0;
+  font-size: 25px;
+  opacity: 0;
 }
 
 .clickable.active {
   color: inherit;
   border-color: inherit;
-  
+  .home-icon {
+    opacity: 1;
+    text-shadow: 1px 1px 1px black;
+  }
+  .sports-cards-text {
+    color: rgba(118,255,3,1);
+    font-size: 28px;
+    text-shadow: 1px 1px 1px black;
+  }
 }
 
-.clickable.active p {
-  color: #52ACF4;
+.sportcard {
+  &:hover {
+    color: inherit;
+    border-color: inherit;
+    .home-icon {
+      opacity: 1;
+      text-shadow: 1px 1px 1px black;
+    }
+    .sports-cards-text {
+      color: rgba(118,255,3,1);
+      font-size: 28px;
+      text-shadow: 1px 1px 1px black;
+    }
+  }
 }
