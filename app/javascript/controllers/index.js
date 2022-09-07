@@ -15,13 +15,13 @@ const sports = document.querySelectorAll('.clickable');
 const selected = []
 
 const toggleActiveClass = (event) => {
-  event.currentTarget.classList.toggle('active');
-  selected.push(event.currentTarget.innerText)
+    event.currentTarget.classList.toggle('active');
+    selected.push(event.currentTarget.innerText)
 };
 
 const toggleActiveOnClick = (sport) => {
-  sport.addEventListener('click', toggleActiveClass);
-  console.log(selected)
+    sport.addEventListener('click', toggleActiveClass);
+    console.log(selected)
 };
 
 sports.forEach(toggleActiveOnClick);
@@ -35,3 +35,21 @@ application.register("insert-in-list", InsertInListController)
 import AnimatedNumber from 'stimulus-animated-number'
 
 application.register('animated-number', AnimatedNumber)
+
+import MapController from "./map_controller"
+application.register("map", MapController)
+
+import DisplayMapController from "./displaymap_controller"
+application.register("displaymap", DisplayMapController)
+
+const mapstyle = document.querySelector(".mapboxgl-popup-content")
+const mapbutton = document.querySelector("#map-btn")
+
+
+if (mapbutton) {
+    mapbutton.addEventListener("click", () => {
+        setTimeout(() => {
+            console.log(mapstyle)
+        }, 2000);
+    })
+}

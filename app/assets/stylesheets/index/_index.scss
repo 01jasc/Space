@@ -20,8 +20,15 @@
   top: 0;
   z-index: -2;
   opacity: 0.6;
- }
+}
 
 .card-footer {
   position: relative;
+}
+
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  background: #37791e;
 }

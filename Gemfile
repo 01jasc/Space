@@ -82,3 +82,5 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "chartkick"
 gem "groupdate"
 gem "pg_search"
+
+gem "geocoder"
