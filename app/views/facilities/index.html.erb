@@ -36,15 +36,17 @@ data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" class="shadow-sm my-5 bord
           <% end %>
               </div>
               <div class="card-text text-white">
-                <p><%= facility.description %></p>
+                <p><%= facility.description.truncate(500) %></p>
               </div>
-              <div class="d-flex justify-content-between align-items-center pt-3 audiowide">
+              <div class="d-flex justify-content-between align-items-center py-3 audiowide">
                 <div>
                   <span class= "text-center">Occupancy rate: </span>
                   <span style="color: #76FF03"> <%= rand(20..80) %> % </span>
                 </div>
                 <div>
                   <span>Category: <%= Category.where(id: facility.category_id)[0][:title]  %> <span style="color: #76FF03";><%= sanitize Category.where(id: facility.category_id)[0][:icon] %></span>
+                </div>
+                <div>
                   <% if Review.where(facility_id: facility).empty? %>
                     <span>Rating: No Rating yet</span>
                   <% else %>
