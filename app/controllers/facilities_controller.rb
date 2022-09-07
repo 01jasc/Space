@@ -38,7 +38,7 @@ class FacilitiesController < ApplicationController
         lat: facility.latitude,
         lng: facility.longitude,
         info_window: render_to_string(partial: "info_window", locals: {facility: facility}),
-        image_url: helpers.asset_url("Marker.svg")
+        image_url: helpers.asset_url("green.svg")
       }
     end
   end
