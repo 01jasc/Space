@@ -45,8 +45,8 @@
     <div class="col-md-4">
         <h3 class="text-center pb-2">Book a timeslot</h3>
           <%= simple_form_for [@facility, @booking] do |f| %>
-            <%= f.input :start_time, as: :date, html5: true, input_html: { class: "glass-card input-date" } %>
-            <%= f.input :end_time, as: :date, html5: true, input_html: { class: "glass-card input-date" } %>
+            <%= f.input :start_time, as: :datetime, html5: true, input_html: { class: "glass-card input-date" } %>
+            <%= f.input :end_time, as: :datetime, html5: true, input_html: { class: "glass-card input-date" } %>
             <div class="text-center py-2">
               <%= f.submit "Book Offer", class: "glass-button" %>
             </div>
