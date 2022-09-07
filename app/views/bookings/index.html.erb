@@ -42,11 +42,11 @@
       <div class="col-12 cards-frame">
             <% @bookings.where(user_id: current_user.id).each do |booking| %>
 
-              <div class="booking-card glass-card">
-            <%= link_to facility_path(booking.facility), class: "text-decoration-none text-white"  do %>
-                  <div class="bg-booking rounded" style="background-image: url('<%= booking.facility.picture %>')">
+              <div class="booking-card">
+                <%= link_to facility_path(booking.facility), class: "text-decoration-none text-white"  do %>
+                  <div class="bg-booking" style="background-image: url('<%= booking.facility.picture %>')">
                   </div>
-                    <div class="card-content glass-card p-2 my-3">
+                    <div class="card-content p-2 my-3">
                       <h3><%= booking.facility.name %></h3>
                       <p>Starttime: <%= booking.start_time %></p>
                       <p>Endtime: <%= booking.end_time %></p>
@@ -60,8 +60,8 @@
                         <% end %>
                       </div>
                     </div>
+                <% end  %>
               </div>
-             <% end  %>
 
             <% end  %>
       </div>
