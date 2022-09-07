@@ -12,7 +12,7 @@
         </button>
       </div>
     </div>
-    
+
     </div>
   </div>
   <div>
@@ -26,7 +26,7 @@
         <div class="row d-flex py-4">
           <div class="col my-1">
             <%= link_to facility_path(facility), class: "text-decoration-none text-black"  do %>
-            <div class="card glass-card shadow-xl rounded-lg horizontal h-400 mt-5">
+            <div class="card glass-card shadow-xl rounded-lg horizontal h-500 mt-5">
               <% if facility.picture.present? %>
                 <%= image_tag facility.picture, class: "card-img shadow-box", style: "width: 350px; height: 100%; object-fit: cover;" %>
               <% else %>
@@ -39,14 +39,14 @@
                 <div class="card-text text-white">
                   <p><%= facility.description %></p>
                     <div class="card-footer mx-2">
-                      <div class="row d-flex text-center ">
+                      <div class="row d-flex text-center">
                           <h4 class= "mb-10 pb-3 text-center", style="color: #76FF03" style="color: #76FF03;">occupancy rate:
                               <%= rand(20..80) %>
                             <span style="color: #76FF03;">%</span>
                           </h4>
                       </div>
-                 </div>
-              </div>
+                    </div>
+                </div>
             <% end %>
           </div>
         </div>
