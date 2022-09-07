@@ -2,11 +2,10 @@
 
 
 .container-bubble {
-  position: relative;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  contain: layout;
 }
 
 .gradient-bubble {
@@ -27,7 +26,7 @@
   &.second {
     position: absolute;
     bottom: -15vw;
-    right: 10vw;
+    right: -15vw;
     width: 30px;
     height: 30px;
     animation-delay: 0.8s;
@@ -47,15 +46,15 @@
 }
 &.fifth {
   position: absolute;
-  bottom: -15vw;
-  right: 10vw;
+  bottom: -20vw;
+  right: -25vw;
   width: 90px;
   height: 90px;
   animation-delay: 0.8s;
 }
 &.sixth {
   position: absolute;
-  top: 115vw;
+  top: 125vw;
   left: 10vw;
   width: 170px;
   height: 170px;
