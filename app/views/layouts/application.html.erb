@@ -5,14 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
+  <%= favicon_link_tag %>
+  <%# <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> %>
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   <link href="https://fonts.googleapis.com/css?family=Audiowide&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
-  <%# <link href="https://fonts.googleapis.com/css?family=Font+Awesome+6+Pro&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Font+Awesome+5+Brands&display=swap" rel="stylesheet" /> %>
+
 </head>
 <body>
   <%= render "shared/navbar" %>
