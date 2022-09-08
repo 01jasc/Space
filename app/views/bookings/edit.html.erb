@@ -2,8 +2,8 @@
       <% if current_user %>
         <h3 class="text-center pb-2">edit your booking</h3>
           <%= simple_form_for [@facility, @booking] do |f| %>
-            <%= f.input :start_time, as: :date, html5: true, input_html: { class: "glass-card" } %>
-            <%= f.input :end_time, as: :date, html5: true, input_html: { class: "glass-card" } %>
+            <%= f.input :start_time, as: :date, html5: true, input_html: { class: "glass-card-1" } %>
+            <%= f.input :end_time, as: :date, html5: true, input_html: { class: "glass-card-1" } %>
             <div class="text-center py-2">
               <%= f.submit "Update your booking", class: "glass-button marg" %>
             </div>

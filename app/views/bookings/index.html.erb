@@ -27,9 +27,13 @@
           <br> at a glance:
         </h3>
           <br>
-          <h3 class="green-footer">
-            <%= @bookings.where(user_id: current_user.id).count%>
-          </h3>
+            <h3 class="text-center mb-5">
+              <span data-controller="animated-number"
+              data-animated-number-start-value="0"
+              data-animated-number-end-value=<%= @bookings.where(user_id: current_user.id).count%>
+              data-animated-number-duration-value="2000" style="color: #76FF03" style="color: #76FF03;"
+              >0</span>
+            </h3>
           </div>
         </div>
       </div>
@@ -42,11 +46,11 @@
       <div class="col-12 cards-frame">
             <% @bookings.where(user_id: current_user.id).each do |booking| %>
 
-              <div class="booking-card glass-card">
-            <%= link_to facility_path(booking.facility), class: "text-decoration-none text-white"  do %>
-                  <div class="bg-booking rounded" style="background-image: url('<%= booking.facility.picture %>')">
+              <div class="booking-card">
+                <%= link_to facility_path(booking.facility), class: "text-decoration-none text-white"  do %>
+                  <div class="bg-booking" style="background-image: url('<%= booking.facility.picture %>')">
                   </div>
-                    <div class="card-content glass-card p-2 my-3">
+                    <div class="card-content p-2 my-3">
                       <h3><%= booking.facility.name %></h3>
                       <p>Starttime: <%= booking.start_time %></p>
                       <p>Endtime: <%= booking.end_time %></p>
@@ -60,8 +64,8 @@
                         <% end %>
                       </div>
                     </div>
+                <% end  %>
               </div>
-             <% end  %>
 
             <% end  %>
       </div>
