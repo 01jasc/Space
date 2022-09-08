@@ -24,16 +24,27 @@
     <% end %>
   </div>
   <div id="graph" class="py-5">
-    <h3 class="text-center mb-5">Current booking rate:
+    <h3 class="text-center mb-5">Live booking rate:
     <span data-controller="animated-number"
     data-animated-number-start-value="0"
     data-animated-number-end-value=<%= rand(20..80) %>
-    data-animated-number-duration-value="2000" style="color: #76FF03" style="color: #76FF03;"
+    data-animated-number-duration-value="2000" style="color: #76FF03"
     >0</span>
     <span style="color: #76FF03;">%</span>
     </h3>
     <div class="d-flex justify-content-center">
-      <%= column_chart Booking.where(facility_id: params[:id]).group_by_day_of_week(:end_time, time_zone: "Berlin", format: "%a").count, colors: ["#76FF03"], library: {borderRadius: 8 }%>
+      <%= column_chart Booking.where(facility_id: params[:id]).group_by_day_of_week(:end_time, time_zone: "Berlin", format: "%a").count, colors: ["#76FF03"], library: {borderRadius: 8, fontColor: "#fff", legend: { xAxis: {fontColor: 'white'}} } %>
+    </div>
+    <div style="background-color: black">
+    <div class="d-flex justify-content-between w-100 px-3 py-3" style="background-color: black; margin-top: -40px;">
+      <p class="px-5" style="background-color: black;">Monday</p>
+      <p class="px-5" style="background-color: black;">Tuesday</p>
+      <p class="px-5" style="background-color: black;">Wednesday</p>
+      <p class="px-5" style="background-color: black;">Thursday</p>
+      <p class="px-5" style="background-color: black;">Friday</p>
+      <p class="px-5" style="background-color: black;">Saturday</p>
+      <p class="px-5" style="background-color: black;">Sunday</p>
+    </div>
     </div>
   </div>
 
