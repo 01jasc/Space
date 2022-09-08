@@ -1,0 +1,4 @@
+meta_product_name: "Space"
+meta_title: "Space - Never Train in a crowded place again"
+meta_description: "An app to check the occupancy rate in all sport facilities in your town!"
+meta_image: "fitness.png" # should exist in `app/assets/images/`

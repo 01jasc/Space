@@ -84,3 +84,4 @@ gem "groupdate"
 gem "pg_search"
 
 gem "geocoder"
+gem 'yaml'
