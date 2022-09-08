@@ -17,3 +17,7 @@
 @import "index/index";
 @import "pages/show";
 @import "star-rating.js/dist/star-rating.css";
+
+body {
+  overflow-x: hidden;
+}

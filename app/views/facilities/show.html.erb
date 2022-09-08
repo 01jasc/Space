@@ -1,6 +1,6 @@
 <% content_for :meta_title, "#{@facility.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @facility.description %>
-<%# <% content_for :meta_image, cl_image_path(@facility.picturepath) %>
+<%# <% content_for :meta_image, cl_image_path(@facility.picture) %>
 <div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @facility.picture %>)">
   <div>
     <h3 class="mb-5"><%= @facility.name %></h3>
