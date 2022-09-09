@@ -33,9 +33,9 @@
     <span style="color: #76FF03;">%</span>
     </h3>
     <div class="d-flex justify-content-center">
-      <%= column_chart Booking.where(facility_id: params[:id]).group_by_day_of_week(:end_time, time_zone: "Berlin", format: "%a").count, colors: ["#76FF03"], library: {borderRadius: 8, fontColor: "#fff", legend: { xAxis: {fontColor: 'white'}} } %>
+      <%= column_chart Booking.where(facility_id: params[:id]).group_by_day_of_week(:end_time, time_zone: "Berlin", format: "%a").count, colors: ["#76FF03"], library: {borderRadius: 8, scales: {x: { ticks: {color: "#fff", font: { size: 24, family: 'audiowide'}}}} } %>
     </div>
-    <div style="background-color: black">
+    <%# <div style="background-color: black">
     <div class="d-flex justify-content-between w-100 px-3 py-3" style="background-color: black; margin-top: -40px;">
       <p class="px-5" style="background-color: black;">Monday</p>
       <p class="px-5" style="background-color: black;">Tuesday</p>
@@ -45,7 +45,7 @@
       <p class="px-5" style="background-color: black;">Saturday</p>
       <p class="px-5" style="background-color: black;">Sunday</p>
     </div>
-    </div>
+    </div> %>
   </div>
 
 <div id="booking-form" class="row justify-content-center py-5 booking-form">
