@@ -1,4 +1,4 @@
-SPACE
+Meet SPACE
 
 Never train in a crowded place again with Space. Explore the best sport places around you and get live information and statistics on the max capacity and the capacity utilization of your favourite place. Book a time slot, check your private activity journal and leave a review for places you already visited.
 
